@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" stylesheets="@login-view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:id="loginPane" fx:controller="org.jolt.fablab.controllers.LoginController">
+    <children>
+      <AnchorPane prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: #002147;">
+         <children>
+            <ImageView fitHeight="325.0" fitWidth="400.0" layoutX="63.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Fab-Lab-Icons-200px_FAB-LAB.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ButtonBar layoutX="704.0" prefHeight="49.0" prefWidth="153.0">
+         <buttons>
+              <MFXButton id="minimizeBtn" fx:id="minimizeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#minimizeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: green;" text="_" textAlignment="CENTER" textFill="WHITE">
+                  <font>
+                      <Font name="System Bold" size="12.0" />
+                  </font>
+              </MFXButton>
+              <MFXButton id="closeBtn" fx:id="closeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#closeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: red;" text="X" textAlignment="CENTER" textFill="WHITE">
+                  <font>
+                      <Font name="System Bold" size="12.0" />
+                  </font>
+              </MFXButton>
+         </buttons>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" />
+         </padding>
+      </ButtonBar>
+      <Label focusTraversable="false" layoutX="597.0" layoutY="127.0" text="FabLab">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+        <MFXTextField floatingText="Username" layoutX="552.0" layoutY="212.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0">
+            <trailingIcon>
+                <FontAwesomeIconView glyphName="USER" size="18" translateX="-5.0" />
+            </trailingIcon>
+        </MFXTextField>
+        <MFXPasswordField floatingText="Password" layoutX="552.0" layoutY="267.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0" />
+        <MFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="702.0" layoutY="323.0" onMouseClicked="#loginBtnClicked" prefHeight="50.0" prefWidth="100.0" text="Login" />
+    </children>
+</AnchorPane>

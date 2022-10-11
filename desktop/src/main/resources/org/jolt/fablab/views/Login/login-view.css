@@ -1,0 +1,7 @@
+.mfx-text-field {
+	-fx-border-color: black;
+}
+
+.mfx-text-field .floating-text {
+	-fx-text-fill: black;
+}
