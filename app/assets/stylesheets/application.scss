@@ -12,3 +12,62 @@
  *
  */
 @import "bootstrap";
+
+.titlediv {
+    background-image: linear-gradient(#0a1128, #001f54, #034078);
+    height: 80%;
+  }
+
+  .account_buttons button {
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+  }
+
+  .login {
+    background-color: #ffffff;
+    color: #0a1128;
+    border: 2px solid #ffffff;
+  }
+
+  .titlediv button:hover {
+    box-shadow: 1px 1px 10px #ffffff;
+    transition-duration: 0.2s;
+  }
+
+  .signup {
+    background-color: #0a1128;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+
+  .titletext {
+    width: 70%;
+  }
+
+  .titletext h1 {
+    font-family: tahoma;
+    font-size: 8em;
+  }
+
+  .titletext p {
+    font-family: microsoft yahei;
+    font-size: 1.2em;
+  }
+
+  .reqbutton {
+    padding: 1.5em 2em;
+    background-color: #1282a2;
+    color: #0a1128;
+    border-radius: 10px;
+    border: none;
+    font-family: microsoft yahei;
+  }
+
+  .reqbutton:hover {
+    color: #ffffff;
+    background-color: #0a1128;
+    border: none;
+    transition-duration: 0.2s;
+    box-shadow: 1px 1px 10px #0a1128;
+  }
