@@ -25,12 +25,12 @@
       </AnchorPane>
       <ButtonBar layoutX="704.0" prefHeight="49.0" prefWidth="153.0">
          <buttons>
-              <MFXButton id="minimizeBtn" fx:id="minimizeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#minimizeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: green;" text="_" textAlignment="CENTER" textFill="WHITE">
+              <MFXButton id="minimizeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#minimizeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: green;" text="_" textAlignment="CENTER" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
               </MFXButton>
-              <MFXButton id="closeBtn" fx:id="closeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#closeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: red;" text="X" textAlignment="CENTER" textFill="WHITE">
+              <MFXButton id="closeBtn" focusTraversable="false" minWidth="25.0" onMouseClicked="#closeBtnClicked" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: red;" text="X" textAlignment="CENTER" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
@@ -40,17 +40,17 @@
             <Insets bottom="8.0" left="8.0" right="8.0" />
          </padding>
       </ButtonBar>
-      <Label focusTraversable="false" layoutX="597.0" layoutY="127.0" text="FabLab">
+      <Label layoutX="597.0" layoutY="127.0" text="FabLab">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-        <MFXTextField floatingText="Username" layoutX="552.0" layoutY="212.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0">
+        <MFXTextField fx:id="usernameField" floatingText="Username" layoutX="552.0" layoutY="212.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0">
             <trailingIcon>
                 <FontAwesomeIconView glyphName="USER" size="18" translateX="-5.0" />
             </trailingIcon>
         </MFXTextField>
-        <MFXPasswordField floatingText="Password" layoutX="552.0" layoutY="267.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0" />
-        <MFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="702.0" layoutY="323.0" onMouseClicked="#loginBtnClicked" prefHeight="50.0" prefWidth="100.0" text="Login" />
+        <MFXPasswordField fx:id="passwordField" floatingText="Password" layoutX="552.0" layoutY="267.0" prefHeight="50.0" prefWidth="250.0" AnchorPane.rightAnchor="98.0" />
+        <MFXButton buttonType="RAISED" layoutX="702.0" layoutY="323.0" onMouseClicked="#loginBtnClicked" prefHeight="50.0" prefWidth="100.0" text="Login" />
     </children>
 </AnchorPane>
