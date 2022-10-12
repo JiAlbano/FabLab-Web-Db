@@ -13,7 +13,7 @@
  */
 @import "bootstrap";
 
-.titlediv {
+  .titlediv {
     background-image: linear-gradient(#0a1128, #001f54, #034078);
     height: 80%;
   }
@@ -70,4 +70,42 @@
     border: none;
     transition-duration: 0.2s;
     box-shadow: 1px 1px 10px #0a1128;
+  }
+
+  .my-forms{
+    color:#034078;
+  }
+  .my-forms input{
+    border: 2px solid #034078;
+  }
+  .my-forms a{
+    color:#001f54;
+  }
+
+  .ca-button{
+    background-color: #001f54;
+    border: none;
+  }
+
+  .li-button{
+    background-color: #001f54;
+    border: none;
+  }
+
+  .login-modal {
+    height: 20em;
+  }
+
+  .signup-modal {
+    height: 30em;
+  }
+
+  .pass_cpass{
+    width: 50%;
+    float: left;
+  }
+
+  .signup_buttons{
+    width: 50%; 
+    float: right;
   }

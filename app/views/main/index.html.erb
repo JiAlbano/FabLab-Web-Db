@@ -1,7 +1,7 @@
 <div class="titlediv container-fluid m-0 p-0 position-absolute">
     <span class="account_buttons float-end m-3">
-        <button class="login fw-bold">Log In</button>
-        <button class="signup fw-bold">Sign Up</button>
+        <button class="login fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#login">Log In</button>
+        <button class="signup fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</button>
     </span>
     <div class="titletext text-light position-relative top-50 start-50 translate-middle">
         <h1 class="fw-bold">FabLab</h1>
@@ -15,4 +15,36 @@
     <div class="position-absolute top-100 start-50 translate-middle">
         <button class="reqbutton fw-bold">Request an Appointment</button>
     </div>
+</div>
+
+<!-- modal for login -->
+<div class="modal" tabindex="-1" id="login">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title w-100">Sign in to your account.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container login-modal mt-5">
+        <!-- render the login partial -->
+        <div class="position-relative top-0 start-50 translate-middle"><%= render "login" %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal for signup -->
+<div class="modal" tabindex="-1" id="signup">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title w-100">Create an account.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container signup-modal mt-5">
+        <!-- render the registration partial -->
+        <div class="position-relative top-0 start-50 translate-middle"><%= render "signup" %></div>
+      </div>
+    </div>
+  </div>
 </div>
