@@ -1,5 +1,50 @@
-<button>Log In</button>
-<button>Sign Up</button>
-<h1>FabLab</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<button>Request an Appointment</button>
+<div class="titlediv container-fluid m-0 p-0 position-absolute">
+    <span class="account_buttons float-end m-3">
+        <button class="login fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#login">Log In</button>
+        <button class="signup fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</button>
+    </span>
+    <div class="titletext text-light position-relative top-50 start-50 translate-middle">
+        <h1 class="fw-bold">FabLab</h1>
+        <p class="d-flex justify-content-evenly">FabLab Bicol is a business located on Bicol University East Campus that
+        offers services for product consultation, 3D scanning and printing, printing and cutting, and embroidery. The
+        FabLab Web Application allows you to view the availability of appointments and reserve them. This web-based
+        technology allows, you, our beloved customers, to be able to set appointments remotely through your own computers
+        to provide you with a highly convenient and accessible appointment medium.
+        </p>
+    </div>
+    <div class="position-absolute top-100 start-50 translate-middle">
+        <button class="reqbutton fw-bold">Request an Appointment</button>
+    </div>
+</div>
+
+<!-- modal for login -->
+<div class="modal" tabindex="-1" id="login">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title w-100">Sign in to your account.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container login-modal mt-5">
+        <!-- render the login partial -->
+        <div class="position-relative top-0 start-50 translate-middle"><%= render "login" %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal for signup -->
+<div class="modal" tabindex="-1" id="signup">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title w-100">Create an account.</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container signup-modal mt-5">
+        <!-- render the registration partial -->
+        <div class="position-relative top-0 start-50 translate-middle"><%= render "signup" %></div>
+      </div>
+    </div>
+  </div>
+</div>
