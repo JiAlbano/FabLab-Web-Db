@@ -21,3 +21,5 @@ Using IntelliJ IDEA with Maven build tools to fetch other dependencies
 ### Android App
 
 TBA
+
+![GANTT CHART!](https://user-images.githubusercontent.com/114860611/196327012-e1507b93-b116-418e-b360-cb29bc690605.JPG)
