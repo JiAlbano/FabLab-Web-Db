@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   post "/signup", to: "main#signup"
   get "/logout", to: "main#logout"
 
+  # Dashboard related
+  get "/dashboard", to: "dashboard#index"
+  get "/sidebar", to: "dashboard#sidebar"
+  get "/request_appointment", to: "dashboard#request_appointment"
+
   # Defines the root path route ("/")
   root "main#index"
-
-  get "sidebar", to: "dashboard#sidebar"
-  get "index", to: "dashboard#index"
-  get "request_appointment", to: "dashboard#request_appointment"
   
 end
