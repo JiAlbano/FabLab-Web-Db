@@ -1,8 +1,24 @@
 <div class="titlediv container-fluid m-0 p-0 position-absolute">
+    <!-- if not logged in, show login and signup button -->
     <span class="account_buttons float-end m-3">
         <button class="login fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#login">Log In</button>
         <button class="signup fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</button>
     </span>
+
+    <!-- if not logged in, show login and signup button
+    <div class="dropdown float-end m-3">
+      <button class="user-dropdown text-light dropdown-toggle fw-bold" type="button" data-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Welcome, Username!
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/">My Appointments</a></li>
+        <li><a class="dropdown-item" href="/">Request New Appointment</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/">Log out</a></li>
+      </ul>
+    </div> -->
+
+
     <div class="titletext text-light position-relative top-50 start-50 translate-middle">
         <h1 class="fw-bold">FabLab</h1>
         <p class="d-flex justify-content-evenly">FabLab Bicol is a business located on Bicol University East Campus that
@@ -18,7 +34,7 @@
 </div>
 
 <!-- modal for login -->
-<div class="modal" tabindex="-1" id="login">
+<div class="modal fade" tabindex="-1" id="login">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -34,7 +50,7 @@
 </div>
 
 <!-- modal for signup -->
-<div class="modal" tabindex="-1" id="signup">
+<div class="modal fade" tabindex="-1" id="signup">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header text-center">
