@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   get "sidebar", to: "dashboard#sidebar"
   get "index", to: "dashboard#index"
+  get "request_appointment", to: "dashboard#request_appointment"
   
 end
