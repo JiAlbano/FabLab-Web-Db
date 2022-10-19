@@ -1,6 +1,5 @@
 class MainController < ApplicationController
     def index
-
     end
 
     def signup
@@ -10,13 +9,15 @@ class MainController < ApplicationController
         if @customer.save
             @customer_detail.customer = @customer
             if @customer_detail.save
-                puts "successful registration"
+                redirect_to root_path, notice: "Successfully created account!"
             else
                 @customer.destroy
-                puts "failed on customer detail"
+                warn "Failed on saving @customer_detail"
+                redirect_to root_path, notice: "Failed in creating account..."
             end
         else
-            puts "failed on customer"
+            warn "Failed on saving @customer"
+            redirect_to root_path, notice: "Failed in creating account..."
         end
     end
 
@@ -24,10 +25,17 @@ class MainController < ApplicationController
         @customer = Customer.find_by(username: login_params[:username])
 
         if @customer.present? && @customer.authenticate(login_params[:password])
-            puts "successful login"
+            session[:customer_id] = @customer.id
+            redirect_to root_path, notice: "Welcome, #{@customer.customer_detail.full_name}"
         else
-            puts "not successful login"
+            redirect_to root_path, notice: "Invalid username and/or password."
         end
+    end
+
+    def logout
+        session[:customer_id] = nil
+
+        redirect_to root_path, notice: "You have logged out."
     end
 
     private

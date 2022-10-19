@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
-    def index
+  before_action :require_customer_logged_in!
 
-    end
+  def index
+
+  end
 end

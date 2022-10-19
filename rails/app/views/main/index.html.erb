@@ -1,65 +1,73 @@
+<div class="toast-container position-absolute bottom-0 end-0 p-2">
+  <%= render 'layouts/toast', notice: notice %>
+</div>
+
 <div class="titlediv container-fluid m-0 p-0 position-absolute">
-    <!-- if not logged in, show login and signup button -->
+  <!-- if not logged in, show login and signup button -->
+  <% if Current.customer.nil? %>
     <span class="account_buttons float-end m-3">
         <button class="login fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#login">Log In</button>
         <button class="signup fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</button>
     </span>
-
-    <!-- if not logged in, show login and signup button
+  <% else %>
+    <!-- else, if logged in, show dropdown for user options -->
     <div class="dropdown float-end m-3">
       <button class="user-dropdown text-light dropdown-toggle fw-bold" type="button" data-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        Welcome, Username!
+        Welcome, <%= Current.customer.customer_detail.full_name %>
       </button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="/">My Appointments</a></li>
         <li><a class="dropdown-item" href="/">Request New Appointment</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="/">Log out</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><%= link_to "Log out", logout_path, class: "dropdown-item" %></li>
       </ul>
-    </div> -->
-
-
-    <div class="titletext text-light position-relative top-50 start-50 translate-middle">
-        <h1 class="fw-bold">FabLab</h1>
-        <p class="d-flex justify-content-evenly">FabLab Bicol is a business located on Bicol University East Campus that
-        offers services for product consultation, 3D scanning and printing, printing and cutting, and embroidery. The
-        FabLab Web Application allows you to view the availability of appointments and reserve them. This web-based
-        technology allows, you, our beloved customers, to be able to set appointments remotely through your own computers
-        to provide you with a highly convenient and accessible appointment medium.
-        </p>
     </div>
-    <div class="position-absolute top-100 start-50 translate-middle">
-        <button class="reqbutton fw-bold">Request an Appointment</button>
-    </div>
-</div>
+  <% end %>
 
-<!-- modal for login -->
-<div class="modal fade" tabindex="-1" id="login">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h5 class="modal-title w-100">Sign in to your account.</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="container login-modal mt-5">
-        <!-- render the login partial -->
-        <div class="position-relative top-0 start-50 translate-middle"><%= render "login" %></div>
+
+  <div class="titletext text-light position-relative top-50 start-50 translate-middle">
+    <h1 class="fw-bold">FabLab</h1>
+    <p class="d-flex justify-content-evenly">FabLab Bicol is a business located on Bicol University East Campus that
+      offers services for product consultation, 3D scanning and printing, printing and cutting, and embroidery. The
+      FabLab Web Application allows you to view the availability of appointments and reserve them. This web-based
+      technology allows, you, our beloved customers, to be able to set appointments remotely through your own computers
+      to provide you with a highly convenient and accessible appointment medium.
+    </p>
+  </div>
+  <div class="position-absolute top-100 start-50 translate-middle">
+    <button class="reqbutton fw-bold">Request an Appointment</button>
+  </div>
+
+  <!-- modal for login -->
+  <div class="modal fade" tabindex="-1" id="login">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100">Sign in to your account.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="container login-modal mt-5">
+          <!-- render the login partial -->
+          <div class="position-relative top-0 start-50 translate-middle"><%= render "login" %></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- modal for signup -->
-<div class="modal fade" tabindex="-1" id="signup">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h5 class="modal-title w-100">Create an account.</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="container signup-modal mt-5">
-        <!-- render the registration partial -->
-        <div class="position-relative top-0 start-50 translate-middle"><%= render "signup" %></div>
+  <!-- modal for signup -->
+  <div class="modal fade" tabindex="-1" id="signup">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100">Create an account.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="container signup-modal mt-5">
+          <!-- render the registration partial -->
+          <div class="position-relative top-0 start-50 translate-middle"><%= render "signup" %></div>
+        </div>
       </div>
     </div>
   </div>
