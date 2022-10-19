@@ -10,7 +10,125 @@
     </div>
 </div>
 
-<div class="dashboard-content bg-primary float-right">
-    
+<div class="dashboard-content float-right pt-4"> 
+    <h1 class="m-4 fw-bold">My Appointments</h1>
+    <div class="pending-card card m-4 text-light">
+        <h5 class="pending-title card-header text-light">Pending Appointment</h5>
+        <div class="pending-info card-body text-center">
+            <div class="row">
+                <div class="col m-auto">
+                    Date
+                    <h5 class="card-title">October 20, 2022</h5>
+                    Time
+                    <h5 class="card-title">9:00 a.m.</h5>
+                    Status
+                    <!-- <p class="text-success">Approved</p> -->
+                    <p class="text-warning">Waiting for Approval</p>
+                </div>
+                <div class="col m-auto">
+                    Requested by
+                    <h5 class="card-title">Surname, First Name M.</h5>
+                    Email
+                    <h5 class="card-title">customeremail@email.com</h5>
+                </div>
+                <div class="col m-auto">
+                    Service
+                    <h1>3D Printing</h1>
+                </div>
+            </div>
+        </div>
+        <div class="position-absolute bottom-0 end-0 mt-4 p-3">
+            <button class="btn btn-danger">Cancel Request</button>
+        </div>
+    </div>
+
+    <h5 class="m-4">Appointments History</h5>
+    <!-- Appointments History Cards -->
+    <div class="row m-4">
+        <% for i in 1..3 %>
+        <div class="card col-3 rounded-0" style="background: #a1b5c4">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-1 text-light">Appointment Date</h6>
+                <input class="form-control mb-2" type="text" value="2020 - 10 - 18" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Appointment Time</h6>
+                <input class="form-control mb-2" type="text" value="9:00 AM" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Service Availed</h6>
+                <input class="form-control mb-2" type="text" value="3D Printing" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Status</h6>
+                <input class="form-control mb-2 text-light" style="background: #12a282" type="text" value="Approved" disabled>
+                <p class="card-text text-light">Some short description about the appointment.</p>
+            </div>
+        </div>
+        <% end %>
+        <% for i in 1..3 %>
+        <div class="card col-3 rounded-0" style="background: #a1b5c4">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-1 text-light">Appointment Date</h6>
+                <input class="form-control mb-2" type="text" value="2020 - 10 - 18" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Appointment Time</h6>
+                <input class="form-control mb-2" type="text" value="9:00 AM" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Service Availed</h6>
+                <input class="form-control mb-2" type="text" value="3D Printing" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Status</h6>
+                <input class="form-control mb-2 text-danger border border-danger border-2" type="text" value="Cancelled" disabled>
+            </div>
+        </div>
+        <% end %>
+        <% for i in 1..2 %>
+        <div class="card col-3 rounded-0" style="background: #a1b5c4">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-1 text-light">Appointment Date</h6>
+                <input class="form-control mb-2" type="text" value="2020 - 10 - 18" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Appointment Time</h6>
+                <input class="form-control mb-2" type="text" value="9:00 AM" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Service Availed</h6>
+                <input class="form-control mb-2" type="text" value="3D Printing" disabled>
+                <h6 class="card-subtitle mb-1 text-light">Status</h6>
+                <input class="form-control mb-2 text-light" style="background: #d67e7e" type="text" value="Denied" disabled>
+                <p class="card-text text-light">Some short description about the appointment.</p>
+            </div>
+        </div>
+        <% end %>
+    </div>
+
+    <!-- Appointments History Table
+    <div class="container-fluid p-4 text-center">
+        <table class="appointment-history table rounded">
+            <thead class="ah-title">
+                <tr>
+                    <th colspan="12"><h5 class="float-start mx-2">Appointments History</h5></th>
+                </tr>
+            </thead>
+            <thead class="ah-head">
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>2022 - 10 - 20</th>
+                    <td>9:00 a.m.</td>
+                    <td>3D Printing</td>
+                    <td class="bg-success text-light">Approved</td>
+                </tr>
+                <tr>
+                    <th>2018 - 03 - 04</th>
+                    <td>10:00 a.m.</td>
+                    <td>3D Printing</td>
+                    <td class="bg-success text-light">Approved</td>
+                </tr>
+                <tr>
+                    <th>2020 - 03 - 07</th>
+                    <td>10:30 a.m.</td>
+                    <td>Embroidery</td>
+                    <td class="bg-danger text-light">Denied</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
 </div>
 
