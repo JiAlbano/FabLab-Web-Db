@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginPane" prefHeight="600.0" prefWidth="953.0" style="-fx-background-radius: 16; -fx-border-radius: 15;" stylesheets="@login-view.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.LoginController">
+    <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="475.0" style="-fx-background-color: #002147; -fx-border-radius: 15 0 15 0, 15 0 15 0; -fx-background-radius: 15 0 0 15, 15 0 0 15;">
+         <children>
+            <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="572.0" prefWidth="445.0" style="-fx-background-color: transparent; -fx-border-color: #ffff; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <ImageView fitHeight="68.0" fitWidth="189.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/clipart1838622.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="325.0" fitWidth="400.0" layoutX="75.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Fab-Lab-Icons-200px_FAB-LAB.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="666.0" layoutY="76.0" text="FabLab">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+        <MFXTextField fx:id="usernameField" floatMode="BORDER" floatingText="Username" layoutX="581.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" AnchorPane.rightAnchor="81.60000000000002">
+            <trailingIcon>
+                <FontAwesomeIconView glyphName="USER" size="18" text="" translateX="-5.0" />
+            </trailingIcon>
+        </MFXTextField>
+        <MFXPasswordField fx:id="passwordField" floatMode="BORDER" floatingText="Password" layoutX="581.0" layoutY="386.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0" AnchorPane.rightAnchor="81.60000000000002" />
+        <MFXButton buttonType="RAISED" layoutX="666.0" layoutY="442.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#loginBtnClicked" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #002147;" text="Login" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></MFXButton>
+      <Label layoutX="639.0" layoutY="130.0" text="User Login">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="125.0" fitWidth="155.0" layoutX="664.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fablab.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="75.0" layoutX="506.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/images.png" />
+         </image>
+      </ImageView>
+        <MFXButton id="closeBtn" focusTraversable="false" layoutX="893.0" layoutY="18.0" minHeight="-Infinity" minWidth="25.0" onMouseClicked="#closeBtnClicked" prefHeight="26.0" prefWidth="40.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="11" textAlignment="RIGHT" wrappingWidth="14.8" />
+         </graphic>
+        </MFXButton>
+        <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="840.0" layoutY="18.0" minWidth="40.0" onMouseClicked="#minimizeBtnClicked" prefHeight="27.0" prefWidth="40.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="11" textAlignment="RIGHT" wrappingWidth="14.8" />
+         </graphic>
+        </MFXButton>
+    </children>
+</AnchorPane>
