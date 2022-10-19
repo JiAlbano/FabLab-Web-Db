@@ -30,7 +30,7 @@
     border: 2px solid #ffffff;
   }
 
-  .titlediv button:hover {
+  .account_buttons button:hover {
     box-shadow: 1px 1px 10px #ffffff;
     transition-duration: 0.2s;
   }
@@ -108,4 +108,73 @@
   .signup_buttons{
     width: 50%; 
     float: right;
+  }
+
+  .user-dropdown{
+    background-color: transparent;
+    border: none;
+  }
+
+  .user-dropdown:hover{
+    border-bottom: 0.2em solid #ffffff;
+    font-weight: bold;
+    transition-duration: 0.2s;
+  }
+
+  .sidebar{
+    z-index: 0;
+    background-image: linear-gradient(to right, #0a1128, #001f54);
+    height: 100;
+    width: 30%;
+  }
+
+  .sidebar h1{
+    //font-family: 'Noto Serif Gujarati', serif;
+    font-family: Tahoma;
+    font-size: 5em;
+  }
+
+  .sidebar h1:hover{
+    text-shadow: 1px 1px 5px #ffffff;
+    transition-duration: 0.2s;
+  }
+
+  .user-log{
+    font-family: Microsoft Yahei;
+  }
+  .sidebar .logout{
+    font-size: 0.8em;
+  }
+
+  .welcome-user {
+    color: #1282a2;
+    font-size: 1.2em;
+  }
+
+  .dashboard-buttons{
+    z-index: 1;
+    width: 30%;
+  }
+
+  .dashboard-buttons button{
+    height: 4em;
+    width: 100%;
+    border: none;
+    margin-bottom: 0.3em;
+    background-color: #001f54;
+    color: white;
+  }
+
+  .dashboard-buttons button:hover{
+    background: linear-gradient(to left, #ffffff 50%, #001f54 50%) right;
+    background-size: 200% 100%;
+    color: #0a1128;
+    font-weight: bold;
+    //text-shadow: 1px 1px 1px #0a1128;
+    border: none;
+    transition-duration: 0.3s;
+  }
+
+  .dashboard-content{
+    padding-left: 30%
   }
