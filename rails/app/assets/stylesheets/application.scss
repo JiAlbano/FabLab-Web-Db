@@ -127,7 +127,7 @@
   }
 
   .sidebar{
-    z-index: 1;
+    z-index: -1;
     background-image: linear-gradient(to right, #0a1128, #001f54);
     height: 100;
     width: 30%;
@@ -181,7 +181,9 @@
   }
 
   .dashboard-content{
-    padding-left: 30%
+    width: 70%;
+    margin-left: 30%;
+    position: absolute;
   }
 
   .dashboard-content h1{
@@ -191,7 +193,6 @@
 
   .pending-card{
     background: #1282a2;
-    z-index: -1;
   }
 
   .pending-title{
@@ -199,9 +200,41 @@
   }
 
   .pending-info{
-    height: 15em;
+    height: auto;
   }
 
+  .history-button{
+    //border: 2px solid #0a1128;
+    font-size: 1.5rem;
+    color: #0a1128;
+    text-decoration: none;
+    padding: 1em;
+  }
+
+  .history-button:hover{
+    background: linear-gradient(to left, #0a1128 50%, #ffffff 50%) right;
+    background-size: 200% 100%;
+    color: #ffffff;
+    border: none;
+    transition-duration: 0.2s;
+  }
+
+  .pending-button{
+    font-size: 1.5rem;
+    color: #1282a2;
+    border: 2px solid #1282a2;
+    text-decoration: none;
+    padding: 0.8em;
+  }
+
+  .pending-button:hover{
+    background: linear-gradient(to left, #1282a2 50%, #ffffff 50%) right;
+    background-size: 200% 100%;
+    color: #ffffff;
+    //text-shadow: 1px 1px 1px #0a1128;
+    border: none;
+    transition-duration: 0.2s;
+  }
   .appointment-history{
     overflow: hidden;
   }
@@ -221,5 +254,20 @@
   }
 
   .appointment-card{
-    background-image: linear-gradient(#001f54, #1282a2);
+    background-image: linear-gradient(#0a1128, #1282a2);
+  }
+
+  .appointment-form input{
+    font-size: 1.3em;
+    border: 0.1em solid #001f54;
+  }
+
+  .date-time{
+    border: none;
+    box-shadow: 1px 1px 0.5em #034078;
+  }
+
+  .description {
+    border: 2px solid #001f54;
+    box-shadow: 1px 1px 0.5em #034078;
   }

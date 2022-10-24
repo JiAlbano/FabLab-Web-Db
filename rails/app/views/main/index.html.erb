@@ -16,8 +16,8 @@
         Welcome, <%= Current.customer.customer_detail.full_name %>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %></li>
-        <li><a class="dropdown-item" href="/">Request New Appointment</a></li>
+        <li><%= link_to "My Appointments", pending_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Request an Appointment", request_path, class: "dropdown-item" %></li>
         <li>
           <hr class="dropdown-divider">
         </li>
@@ -37,7 +37,7 @@
     </p>
   </div>
   <div class="position-absolute top-100 start-50 translate-middle">
-    <%= link_to "Request an Appointment", dashboard_path, class: "reqbutton fw-bold" %>
+    <%= link_to "Request an Appointment", request_path, class: "reqbutton fw-bold" %>
   </div>
 
   <!-- modal for login -->

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get "/logout", to: "main#logout"
 
   # Dashboard related
-  get "/dashboard", to: "dashboard#index"
+  get "/request", to: "dashboard#request_new"
+  post "/request", to: "dashboard#request_new"
+  get "/pending", to: "dashboard#pending"
+  get "/history", to: "dashboard#history"
   get "/sidebar", to: "dashboard#sidebar"
   get "/request_appointment", to: "dashboard#request_appointment"
 

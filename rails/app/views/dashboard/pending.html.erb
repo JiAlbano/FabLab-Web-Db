@@ -1,0 +1,11 @@
+<!-- render sidebar partial -->
+<div class="container-fluid position-fixed vh-100 p-0 float-left">
+    <%= render "sidebar" %>
+</div>  
+
+<div class="dashboard-content float-right pt-4"> 
+    <h1 class="m-4 fw-bold">My Appointments</h1>
+    <%= render "pending_appointment"%>
+</div>
+
+<%= link_to "Show Appointment History", history_path, class: "history-button rounded-0 position-absolute bottom-0 end-0 m-4" %>
