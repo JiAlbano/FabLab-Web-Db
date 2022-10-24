@@ -57,7 +57,7 @@
       </ImageView>
       <ImageView fitHeight="80.0" fitWidth="75.0" layoutX="506.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/images.png" />
+            <Image url="@../Dashboard/images/images.png" />
          </image>
       </ImageView>
         <MFXButton id="closeBtn" focusTraversable="false" layoutX="893.0" layoutY="18.0" minHeight="-Infinity" minWidth="25.0" onMouseClicked="#closeBtnClicked" prefHeight="26.0" prefWidth="40.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">

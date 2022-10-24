@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.DashboardController">
     <children>
-        <AnchorPane prefHeight="162.0" prefWidth="966.0" styleClass="head-background" stylesheets="@Style2.css">
+        <AnchorPane prefHeight="162.0" prefWidth="966.0" styleClass="head-background" stylesheets="@header-style.css">
             <children>
                 <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="752.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -41,7 +41,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Text>
-              <MFXButton id="closeBtn" focusTraversable="false" layoutX="924.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
+              <MFXButton id="closeBtn" focusTraversable="false" layoutX="924.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#closeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
@@ -49,7 +49,7 @@
                       <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="7" tabSize="5" text="" wrappingWidth="22.800048828125" x="1000.0" />
                </graphic>
               </MFXButton>
-              <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="893.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
+              <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="893.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#minimizeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
@@ -78,7 +78,7 @@
                         <Insets right="10.0" />
                     </HBox.margin>
                     <graphic>
-                        <FontAwesomeIconView glyphName="CALENDAR_PLUS" size="16" text="" />
+                        <FontAwesomeIconView glyphName="CALENDAR" size="16" text="" />
                     </graphic>
                 </MFXButton>
                 <MFXButton prefHeight="40.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-radius: 20;" text="Cancel Appointments">
@@ -88,7 +88,7 @@
                 </MFXButton>
             </children>
         </HBox>
-        <TableView layoutX="32.0" layoutY="249.0" prefHeight="171.0" prefWidth="910.0" stylesheets="@TableStyle.css">
+        <TableView layoutX="32.0" layoutY="249.0" prefHeight="171.0" prefWidth="910.0" stylesheets="@table-style.css">
             <columns>
                 <TableColumn prefWidth="215.19997787475586" text="NAME" />
                 <TableColumn prefWidth="83.20002746582031" text="DATE" />
