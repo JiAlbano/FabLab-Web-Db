@@ -1,0 +1,12 @@
+    <div class="sidebar flex-fill vh-100 position-relative">
+        <a href="/" class="text-decoration-none"><h1 class="text-light text-center pt-4 fw-bold">FabLab <i class="fa-solid fa-book-bookmark"></i></h1></a>
+        <div class="user-log position-absolute bottom-0 start-50 translate-middle-x pb-3">
+            <h6 class="welcome-user text-light text-center">Welcome, <b style="color: #1282a2"><%= Current.customer.customer_detail.full_name %></b>! <i class="fa-solid fa-user"></i></h6>
+            <div class="text-center"><%= link_to "Log out", logout_path, class: "logout text-center", style: "color: #8b8b8b" %></div>
+        </div>
+    </div>
+
+    <div class="dashboard-buttons vstack container-fluid position-absolute p-0" style="bottom: 9em">
+        <%= button_to "My Appointments", pending_path, :method => "get" %>
+        <%= button_to "Request an Appointment", request_path, :method => "get" %>
+    </div>

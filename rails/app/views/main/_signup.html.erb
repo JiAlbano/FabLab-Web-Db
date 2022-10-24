@@ -1,26 +1,47 @@
 <div class="position-relative">
-  <form class="my-forms g-3 fw-bold position-absolute top-0 start-50 translate-middle-x">
+  <%= form_with(model: Customer, url: "/signup", class: "my-forms g-3 fw-bold position-absolute top-0 start-50 translate-middle-x") do |form| %>
+    <%= fields_for(CustomerDetail.new) do |u| %>
+      <div class="row">
+        <div class="col-auto">
+          <label for="inline-form-name">First name</label>
+          <%= u.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="col-auto">
+          <label for="inline-form-name">Last name</label>
+          <%= u.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <label for="inline-form-name">Email</label>
+        <%= u.text_field :email, class: "form-control" %>
+      </div>
+
+
+      <div class="row">
+        <div class="col-auto">
+          <label for="inline-form-name">Contact no.</label>
+          <%= u.text_field :contact_number, class: "form-control" %>
+        </div>
+        <div class="col-auto">
+        </div>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="col-auto">
-        <label for="inline-form-name">First name</label> 
-        <input type="text" class="form-control" id="inline-form-name">
+        <label for="inline-form-name">Username</label>
+        <%= form.text_field :username, class: "form-control" %>
       </div>
       <div class="col-auto">
-        <label for="inline-form-name">Last name</label> 
-        <input type="text" class="form-control" id="inline-form-name">
       </div>
     </div>
 
-      <div class="col-auto">
-        <label for="inline-form-name">Email</label> 
-        <input type="text" class="form-control" id="inline-form-name">
-      </div>
-
-      
+    <div class="m-0 pass_cpass">
       <div class="row">
         <div class="col-auto">
-          <label for="inline-form-name">Contact no.</label> 
-          <input type="text" class="form-control" id="inline-form-name">
+          <label for="inline-form-name">Password</label>
+          <%= form.password_field :password, class: "form-control" %>
         </div>
         <div class="col-auto">
         </div>
@@ -28,39 +49,19 @@
 
       <div class="row">
         <div class="col-auto">
-          <label for="inline-form-name">Username</label> 
-          <input type="text" class="form-control" id="inline-form-name">
+          <label for="inline-form-name">Confirm Password</label>
+          <%= form.password_field :password_confirmation, class: "form-control" %>
         </div>
         <div class="col-auto">
         </div>
       </div>
+    </div>
 
-      <div class="m-0 pass_cpass">
-        <div class="row">
-          <div class="col-auto">
-            <label for="inline-form-name">Password</label> 
-            <input type="password" class="form-control" id="inline-form-name">
-          </div>
-          <div class="col-auto">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-auto">
-            <label for="inline-form-name">Confirm Password</label> 
-            <input type="password" class="form-control" id="inline-form-name">
-          </div>
-          <div class="col-auto">
-          </div>
-        </div>
-      </div>
-      <p>
+    <div class="text-center">
       <div class="text-center">
-        <button type="Submit" class="ca-button btn btn-primary p-3">Create Account</button>
-        <div class="mt-2">
-          <button type="Reset" class="col-auto mx-1 btn btn-secondary">Reset</button>
-          <button type="Reset" class="col-auto mx-1 btn btn-danger">Close</button>
-        </div>
+        <%= form.submit "Create account", class: "ca-button btn btn-primary p-3 my-3" %>
+        <button type="Reset" class="col-auto mx-1 btn btn-secondary">Reset Fields</button>
       </div>
-  </form>
+    </div>
+  <% end %>
 </div>

@@ -67,3 +67,8 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+# Ignore some .idea files
+/.idea/workspace.xml
+/.idea/usage.statistics.xml
+/.idea/shelf/*

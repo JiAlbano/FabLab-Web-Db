@@ -4,3 +4,5 @@
 //= require bootstrap-sprockets
 import "@hotwired/turbo-rails"
 import "controllers"
+
+$('.toast').toast('show');

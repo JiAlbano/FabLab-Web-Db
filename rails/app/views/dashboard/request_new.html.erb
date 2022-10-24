@@ -1,0 +1,73 @@
+<!-- render sidebar partial -->
+<div class="container-fluid position-fixed vh-100 p-0 float-left">
+    <%= render "sidebar" %>
+</div>  
+
+<div class="dashboard-content float-right pt-4 container-fluid position-absolute">
+  <h1 class="m-4 fw-bold">Appointment Request Form</h1>
+  <div class="appointment-form p-5 mx-4">
+    <%= form_with(url: "/request", class: "") do |form| %>
+      <div class="row">
+        <div class="col">
+          First Name
+          <input class="form-control text-center" value="<%= Current.customer.customer_detail.first_name.capitalize %>" disabled readonly>
+        </div>
+        <div class="col">
+          Last Name
+          <input class="form-control text-center" value="<%= Current.customer.customer_detail.last_name.capitalize %>" disabled readonly>
+        </div>
+      </div>
+      Email
+      <input class="form-control text-center" value="<%= Current.customer.customer_detail.email %>" disabled readonly>
+      Contact no.
+      <input class="form-control text-center" value="<%= Current.customer.customer_detail.contact_number %>" disabled readonly>
+
+      <div class="row">
+        <div class="col" style="width: 50%">
+          <label for="inline-form-name">Date</label>
+          <%= form.date_field :date, class: "date-time form-control text-center" %>
+        </div>
+        <div class="col" style="width: 50%">
+          <label for="inline-form-name">Time</label>
+          <%= form.time_field :time, class: "date-time form-control text-center" %>
+        </div>
+      </div>
+
+      <div class=" ">
+        <label for="inline-form-name">Purpose</label><p>
+        <%= form.select :purpose, ['Option 1', 'Option 2'], class: "bg-primary" %>
+      </div>
+
+      <div class="">
+        <label for="inline-form-name">Description</label>
+        <%= form.text_area :description, class: "form-control description" %>
+      </div>
+
+      <div class="text-center">
+        <div class="text-center">
+          <!-- disabled button<%= form.submit "Submit Request", class: "ca-button btn btn-primary p-3 my-3" %> -->
+          <button class="ca-button btn btn-primary p-3 my-3" data-bs-toggle="modal" data-bs-target="#confirm_request">Submit Request</button>
+          <button type="Reset" class="col-auto mx-1 btn btn-secondary">Reset Fields</button>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirm_request" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
