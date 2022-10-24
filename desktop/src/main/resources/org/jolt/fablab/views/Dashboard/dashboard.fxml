@@ -14,11 +14,11 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane prefHeight="162.0" prefWidth="966.0" styleClass="head-background" stylesheets="@HeaderStyle.css">
+        <AnchorPane prefHeight="162.0" prefWidth="966.0" styleClass="head-background" stylesheets="@header-style.css">
             <children>
                 <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="752.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../org/jolt/fablab/views/Login/images/EditedBuff.png" />
+                        <Image url="@images/EditedBuff.png" />
                     </image>
                 </ImageView>
                 <Text fill="#1282a2" layoutX="801.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="49.238372802734375">
@@ -63,7 +63,7 @@
             <graphic>
                 <ImageView fitHeight="133.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../org/jolt/fablab/views/Login/images/images.png" />
+                        <Image url="@images/images.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -88,7 +88,7 @@
                 </MFXButton>
             </children>
         </HBox>
-        <TableView layoutX="32.0" layoutY="249.0" prefHeight="171.0" prefWidth="910.0" stylesheets="@TableStyle.css">
+        <TableView layoutX="32.0" layoutY="249.0" prefHeight="171.0" prefWidth="910.0" stylesheets="@table-style.css">
             <columns>
                 <TableColumn prefWidth="215.19997787475586" text="NAME" />
                 <TableColumn prefWidth="83.20002746582031" text="DATE" />
