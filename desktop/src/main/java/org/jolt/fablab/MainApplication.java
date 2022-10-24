@@ -3,6 +3,7 @@ package org.jolt.fablab;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -33,26 +34,14 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/Login/login-view.fxml"));
-        fxmlLoader.setControllerFactory(_class -> {
-            Object controller;
-            try {
-                controller = _class.getConstructor().newInstance();
-            } catch (ReflectiveOperationException ex) {
-                throw new RuntimeException(ex);
-            }
-
-            if (controller instanceof BaseController) {
-                ((BaseController) controller).setMainApp(this);
-                ((BaseController) controller).setDatabaseConnection(this.conn);
-            }
-            return controller;
-        });
-        Scene scene = new Scene(fxmlLoader.load());
+        FXMLLoader fxmlLoader = fxmlLoaderBuilder("views/Login/login-view.fxml");
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         ((BaseController) fxmlLoader.getController()).setScene(scene);
+        ((BaseController) fxmlLoader.getController()).setStage(stage);
         stage.show();
     }
 
@@ -69,5 +58,25 @@ public class MainApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public FXMLLoader fxmlLoaderBuilder(String resourcePath) {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(resourcePath));
+        fxmlLoader.setControllerFactory(_class -> {
+            Object controller;
+            try {
+                controller = _class.getConstructor().newInstance();
+            } catch (ReflectiveOperationException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            if (controller instanceof BaseController) {
+                ((BaseController) controller).setMainApp(this);
+                ((BaseController) controller).setDatabaseConnection(this.conn);
+            }
+            return controller;
+        });
+
+        return fxmlLoader;
     }
 }

@@ -9,12 +9,16 @@ import io.github.palexdev.materialfx.enums.ScrimPriority;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.stage.StageStyle;
 import org.jolt.fablab.MainApplication;
 
 import java.sql.Connection;
@@ -29,13 +33,12 @@ public class LoginController extends BaseController {
 
     @FXML
     void closeBtnClicked(MouseEvent event) {
-        Platform.exit();
+        getStage().close();
     }
 
     @FXML
     void minimizeBtnClicked(MouseEvent event) {
-        Stage stage = (Stage) scene.getWindow();
-        stage.setIconified(true);
+        getStage().setIconified(true);
     }
 
     @FXML
@@ -57,22 +60,6 @@ public class LoginController extends BaseController {
                 .setScrimOwner(true)
                 .get();
 
-        try {
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS(SELECT * FROM employees WHERE username = ? AND password = ?)");
-            ps.setString(1, usernameField.getText());
-            ps.setString(2, passwordField.getText());
-
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            if (rs.getInt(1) == 1) {
-                dialogContent.setContentText("Welcome, " + usernameField.getText());
-            } else {
-                dialogContent.setContentText("Invalid username and/or password.");
-            }
-        } catch (Exception ex) {
-            dialogContent.setContentText("Error on handling login.\n\n" + ex.getMessage());
-        }
-
         dialogContent.addActions(
                 Map.entry(new MFXButton("OK"), event -> {
                     dialog.close();
@@ -81,6 +68,35 @@ public class LoginController extends BaseController {
         dialogContent.setHeaderText("Login");
         dialogContent.setMaxSize(400, 200);
 
-        dialog.showDialog();
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS(SELECT * FROM employees WHERE username = ? AND password = ?)");
+            ps.setString(1, usernameField.getText());
+            ps.setString(2, passwordField.getText());
+
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            if (rs.getInt(1) == 1) {
+                // TODO: close login window and show dashboard window
+                FXMLLoader fxmlLoader = application.fxmlLoaderBuilder("views/Dashboard/dashboard-view.fxml");
+                Parent root = fxmlLoader.load();
+                Scene dbScene = new Scene(root);
+                Stage dbStage = new Stage();
+
+                dbScene.setFill(Color.TRANSPARENT);
+                dbStage.initStyle(StageStyle.TRANSPARENT);
+                dbStage.setScene(dbScene);
+                ((BaseController) fxmlLoader.getController()).setScene(dbScene);
+                ((BaseController) fxmlLoader.getController()).setStage(dbStage);
+                dbStage.show();
+
+                stage.close();
+            } else {
+                dialogContent.setContentText("Invalid username and/or password.");
+                dialog.showDialog();
+            }
+        } catch (Exception ex) {
+            dialogContent.setContentText("Error on handling login.\n\n" + ex.getMessage());
+            dialog.showDialog();
+        }
     }
 }
