@@ -76,7 +76,6 @@ public class LoginController extends BaseController {
             ResultSet rs = ps.executeQuery();
             rs.next();
             if (rs.getInt(1) == 1) {
-                // TODO: close login window and show dashboard window
                 FXMLLoader fxmlLoader = application.fxmlLoaderBuilder("views/Dashboard/dashboard-view.fxml");
                 Parent root = fxmlLoader.load();
                 Scene dbScene = new Scene(root);
