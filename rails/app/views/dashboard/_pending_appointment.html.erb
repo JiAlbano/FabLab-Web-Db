@@ -18,12 +18,29 @@
                     <h5 class="card-title">customeremail@email.com</h5>
                 </div>
                 <div class="col m-auto">
-                    Purpose
+                    Service
                     <h1>3D Printing</h1>
                     
                     <p class="card-title">A short description about the appointment. The quick brown fox jumps over the lazy dog. </p>
                 </div>
             </div>
-            <button class="btn btn-danger float-end">Cancel Request</button>
+            <button class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancel-appointment">Cancel Request</button>
         </div>
     </div>
+
+<!-- Modal for Appointment Cancellation -->
+<div class="modal fade" id="cancel-appointment" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <p class="modal-title w-100" id="confirmLabel">Cancel Pending Request</p>
+            <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <h5 class="text-center m-5">Are you sure?</h5>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger px-4"><i class="fa-solid fa-check"></i></button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+  </div>
+</div>
