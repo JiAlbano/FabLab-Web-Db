@@ -4,6 +4,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.belongs_to :customer
       t.date :date
       t.time :time
+      t.string :service
       t.string :purpose
       t.string :status
 

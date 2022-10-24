@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_094658) do
     t.bigint "customer_id"
     t.date "date"
     t.time "time"
+    t.string "service"
     t.string "purpose"
     t.string "status"
     t.datetime "created_at", null: false
