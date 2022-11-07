@@ -1,0 +1,29 @@
+<%
+  id ||= ""
+  title ||= "Title"
+  body ||= ""
+  form_model ||= ""
+  footer ||= ""
+%>
+<%= turbo_frame_tag "remote_modal" do %>
+  <div <%= "id=#{id}" if id.present? %> class="modal fade" tabindex="-1" data-controller="modal" data-action="turbo:before-render@document->modal#hideBeforeRender">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <%= tag.h5 title, class: "modal-title" %>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= tag.div class: "modal-body" do %>
+          <% if form_model.present? %>
+            <%= render body, model: form_model %>
+          <% else %>
+            <% render body %>
+          <% end %>
+        <% end if body.present? %>
+        <%= tag.div class: "modal-footer" do %>
+          <%= render footer %>
+        <% end if footer.present? %>
+      </div>
+    </div>
+  </div>
+<% end %>

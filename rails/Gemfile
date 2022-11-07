@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 # Use Bootstrap
-gem "bootstrap"
+gem "bootstrap", "~> 5.2.2"
 
 # Use jQuery
 gem 'jquery-rails'

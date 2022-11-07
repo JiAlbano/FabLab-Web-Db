@@ -1,46 +1,49 @@
 <div class="pending-card card m-4 text-light">
-        <h5 class="pending-title card-header text-light">Pending Appointment</h5>
-        <div class="pending-info card-body text-center">
-            <div class="row">
-                <div class="col m-auto">
-                    Date
-                    <h5 class="card-title">October 20, 2022</h5>
-                    Time
-                    <h5 class="card-title">9:00 a.m.</h5>
-                    Status
-                    <!-- <p class="text-success">Approved</p> -->
-                    <p class="text-warning">Waiting for Approval</p>
-                </div>
-                <div class="col m-auto">
-                    Requested by
-                    <h5 class="card-title">Surname, First Name M.</h5>
-                    Email
-                    <h5 class="card-title">customeremail@email.com</h5>
-                </div>
-                <div class="col m-auto">
-                    Service
-                    <h1>3D Printing</h1>
-                    
-                    <p class="card-title">A short description about the appointment. The quick brown fox jumps over the lazy dog. </p>
-                </div>
-            </div>
-            <button class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancel-appointment">Cancel Request</button>
-        </div>
+  <h5 class="pending-title card-header text-light">Pending Appointment</h5>
+  <div class="pending-info card-body text-center">
+    <div class="row">
+      <div class="col m-auto">
+        Date
+        <%= tag.h5 @appointment.datetime.strftime("%a, %b %e, %Y"), class: "card-title" %>
+        Time
+        <%= tag.h5 @appointment.datetime.strftime("%l:%M %p"), class: "card-title" %>
+        Status
+        <!-- <p class="text-success">Approved</p> -->
+        <%= tag.p @appointment.status %>
+      </div>
+      <div class="col m-auto">
+        Requested by
+        <%= tag.h5 Current.customer.customer_detail.full_name, class: "card-title" %>
+        Email
+        <%= tag.h5 Current.customer.customer_detail.email, class: "card-title" %>
+      </div>
+      <div class="col m-auto">
+        Service
+        <%= tag.h1 @appointment.service, class: "text-white" %>
+
+        <%= tag.p @appointment.purpose %>
+      </div>
     </div>
+    <button class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancel-appointment">Cancel
+      Request
+    </button>
+  </div>
+</div>
 
 <!-- Modal for Appointment Cancellation -->
 <div class="modal fade" id="cancel-appointment" tabindex="-1">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-        <div class="modal-header text-center">
-            <p class="modal-title w-100" id="confirmLabel">Cancel Pending Request</p>
-            <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <h5 class="text-center m-5">Are you sure?</h5>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger px-4"><i class="fa-solid fa-check"></i></button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
-        </div>
+      <div class="modal-header text-center">
+        <p class="modal-title w-100" id="confirmLabel">Cancel Pending Request</p>
+        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <h5 class="text-center m-5">Are you sure?</h5>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger px-4"><i class="fa-solid fa-check"></i></button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>
