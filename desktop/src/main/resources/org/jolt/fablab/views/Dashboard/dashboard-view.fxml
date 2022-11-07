@@ -12,21 +12,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.DashboardController">
+<AnchorPane prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.DashboardController">
     <children>
-        <AnchorPane prefHeight="162.0" prefWidth="966.0" styleClass="head-background" stylesheets="@header-style.css">
+        <AnchorPane prefHeight="162.0" prefWidth="1050.0" styleClass="head-background" stylesheets="@header-style.css">
             <children>
-                <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="752.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="872.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@images/EditedBuff.png" />
                     </image>
                 </ImageView>
-                <Text fill="#1282a2" layoutX="801.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="49.238372802734375">
+                <Text fill="#1282a2" layoutX="921.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="49.238372802734375">
                     <font>
                         <Font name="Cambria" size="12.0" />
                     </font>
                 </Text>
-                <Text fill="#f5f5f5" layoutX="746.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome ," wrappingWidth="81.23839569091797">
+                <Text fill="#f5f5f5" layoutX="866.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome ," wrappingWidth="81.23839569091797">
                     <font>
                         <Font name="Cambria" size="12.0" />
                     </font>
@@ -41,7 +41,7 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Text>
-              <MFXButton id="closeBtn" focusTraversable="false" layoutX="924.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#closeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
+              <MFXButton id="closeBtn" focusTraversable="false" layoutX="1013.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#closeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
@@ -49,7 +49,7 @@
                       <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="7" tabSize="5" text="" wrappingWidth="22.800048828125" x="1000.0" />
                </graphic>
               </MFXButton>
-              <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="893.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#minimizeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
+              <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="982.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#minimizeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="12.0" />
                   </font>
@@ -68,9 +68,9 @@
                 </ImageView>
             </graphic>
         </MFXButton>
-        <HBox layoutX="244.0" layoutY="172.0" prefHeight="40.0" prefWidth="708.0">
+        <HBox layoutX="244.0" layoutY="172.0" prefHeight="40.0" prefWidth="794.0">
             <children>
-                <MFXButton prefHeight="40.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-radius: 20;" text="Requested Appointments">
+                <MFXButton prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 20;" text="Requested Appointments">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font>
@@ -81,20 +81,21 @@
                         <FontAwesomeIconView glyphName="CALENDAR" size="16" text="" />
                     </graphic>
                 </MFXButton>
-                <MFXButton prefHeight="40.0" prefWidth="350.0" style="-fx-border-color: black; -fx-border-radius: 20;" text="Cancel Appointments">
+                <MFXButton prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 20;" text="Cancel Appointments">
                     <graphic>
                         <FontAwesomeIconView glyphName="CALENDAR" size="16" text="" />
                     </graphic>
                 </MFXButton>
             </children>
         </HBox>
-        <TableView layoutX="32.0" layoutY="249.0" prefHeight="171.0" prefWidth="910.0" stylesheets="@table-style.css">
+        <TableView layoutX="31.0" layoutY="424.0" prefHeight="250.0" prefWidth="987.0" stylesheets="@table-style.css">
             <columns>
                 <TableColumn prefWidth="215.19997787475586" text="NAME" />
                 <TableColumn prefWidth="83.20002746582031" text="DATE" />
                 <TableColumn prefWidth="117.5999755859375" text="TIME" />
-                <TableColumn prefWidth="232.0" text="SERVICE" />
-                <TableColumn prefWidth="258.4000244140625" text="PURPOSE" />
+                <TableColumn prefWidth="140.800048828125" text="SERVICE" />
+                <TableColumn prefWidth="136.0001220703125" text="STATUS" />
+            <TableColumn prefWidth="447.19976806640625" text="EMAIL" />
             </columns>
         </TableView>
     </children>
