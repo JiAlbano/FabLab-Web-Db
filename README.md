@@ -22,6 +22,6 @@ Using IntelliJ IDEA with Maven build tools to fetch other dependencies
 
 TBA
 
-### Gantt Chart Update 2 Weeks in October
+### Gantt Chart Update 3 Weeks in October
 
-![GANTT CHART!](https://user-images.githubusercontent.com/114860611/196327012-e1507b93-b116-418e-b360-cb29bc690605.JPG)
+![Gantt Chart Update 0 2](https://user-images.githubusercontent.com/114860611/199441533-d2e46571-9df5-4e7d-aafe-fe1e9a9aab5f.JPG)
