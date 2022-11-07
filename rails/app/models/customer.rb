@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
     has_many :appointments, dependent: :destroy
 
     validates :username, :password_digest, presence: true
+    validates :username, uniqueness: true
 end
