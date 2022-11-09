@@ -11,7 +11,7 @@ export default class extends Controller {
         if (this.isOpen()) {
             event.preventDefault()
             this.element.addEventListener('hidden.bs.toast', event.detail.resume)
-            this.element.hide()
+            this.modal.hide()
         }
     }
 

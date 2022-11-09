@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/history", to: "dashboard#history"
   get "/sidebar", to: "dashboard#sidebar"
   post "/confirm", to: "appointment#confirm"
+  patch "/cancel", to: "appointment#cancel_appointment"
   post "/submit_appointment", to: "appointment#submit_appointment"
 
   # Defines the root path route ("/")

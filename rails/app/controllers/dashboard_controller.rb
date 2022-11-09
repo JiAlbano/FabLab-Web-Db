@@ -9,6 +9,7 @@ class DashboardController < ApplicationController
   end
 
   def history
+    @appointments = Current.customer.appointments.where.not(status: 0).order("status ASC, datetime DESC")
   end
 
   def request_new

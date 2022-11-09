@@ -40,9 +40,13 @@
       </div>
       <h5 class="text-center m-5">Are you sure?</h5>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger px-4"><i class="fa-solid fa-check"></i></button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i>
-        </button>
+        <%= form_with(model: @appointment, url: "/cancel") do |form| %>
+          <%= form.hidden_field :id %>
+          <%= button_tag(class: "btn btn-danger px-4", data: { turbo_frame: "_top" }) do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+        <% end %>
       </div>
     </div>
   </div>
