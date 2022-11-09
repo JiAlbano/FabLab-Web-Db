@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_customer_logged_in!
-    redirect_back_or_to root_path if Current.customer.nil?
+    redirect_to root_path, notice: "You must be logged in to do that!" if Current.customer.nil?
   end
 
 end

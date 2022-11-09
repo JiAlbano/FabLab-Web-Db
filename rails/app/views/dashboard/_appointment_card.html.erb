@@ -1,0 +1,11 @@
+<div class="appointment-card card col-3 rounded-0 bg-transparent border-light">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-1 text-light">Appointment Date & Time</h6>
+    <input class="form-control mb-2" type="text" value="<%= appointment.datetime %>" disabled>
+    <h6 class="card-subtitle mb-1 text-light">Service Availed</h6>
+    <input class="form-control mb-2" type="text" value="<%= appointment.service %>" disabled>
+    <h6 class="card-subtitle mb-1 text-light">Status</h6>
+    <input class="form-control mb-2 text-light" style="background: <%= statusColor(appointment.status) %>" type="text" value="<%= appointment.status %>" disabled>
+    <p class="card-text text-light"><%= appointment.purpose %></p>
+  </div>
+</div>
