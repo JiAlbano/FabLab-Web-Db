@@ -1,6 +1,5 @@
 package org.jolt.fablab.controllers;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.jolt.fablab.MainApplication;

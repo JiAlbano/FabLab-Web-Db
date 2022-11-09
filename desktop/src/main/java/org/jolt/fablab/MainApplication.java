@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MainApplication extends Application {
-    private Connection conn = null;
+    private static Connection conn = null;
 
     @Override
     public void init() throws Exception {
@@ -72,11 +72,15 @@ public class MainApplication extends Application {
 
             if (controller instanceof BaseController) {
                 ((BaseController) controller).setMainApp(this);
-                ((BaseController) controller).setDatabaseConnection(this.conn);
+                ((BaseController) controller).setDatabaseConnection(conn);
             }
             return controller;
         });
 
         return fxmlLoader;
+    }
+
+    public static Connection getConnection() {
+        return conn;
     }
 }

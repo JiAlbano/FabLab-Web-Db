@@ -6,8 +6,6 @@ import io.github.palexdev.materialfx.dialogs.MFXGenericDialog;
 import io.github.palexdev.materialfx.dialogs.MFXGenericDialogBuilder;
 import io.github.palexdev.materialfx.dialogs.MFXStageDialog;
 import io.github.palexdev.materialfx.enums.ScrimPriority;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,11 +17,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.stage.StageStyle;
-import org.jolt.fablab.MainApplication;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Arrays;
 import java.util.Map;
 
 public class LoginController extends BaseController {
@@ -95,6 +92,7 @@ public class LoginController extends BaseController {
             }
         } catch (Exception ex) {
             dialogContent.setContentText("Error on handling login.\n\n" + ex.getMessage());
+            System.out.println(Arrays.toString(ex.getStackTrace()));
             dialog.showDialog();
         }
     }
