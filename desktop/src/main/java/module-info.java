@@ -10,4 +10,5 @@ module org.jolt.fablab {
     opens org.jolt.fablab.controllers to javafx.fxml;
     exports org.jolt.fablab;
     exports org.jolt.fablab.controllers;
+    exports org.jolt.fablab.models;
 }
