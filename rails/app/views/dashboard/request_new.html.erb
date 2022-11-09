@@ -1,12 +1,12 @@
-<!-- render sidebar partial -->
-<div class="container-fluid position-fixed vh-100 p-0 float-left">
-    <%= render "sidebar" %>
-</div>  
-
-<div class="dashboard-content float-right pt-4 container-fluid position-absolute">
+<%= turbo_frame_tag "dashboard_content" do %>
   <h1 class="m-4 fw-bold">Appointment Request Form</h1>
   <div class="appointment-form p-5 mx-4">
-    <%= form_with(url: "/request", class: "") do |form| %>
+    <%= form_with(model: Appointment, url: "/confirm") do |form| %>
+      <% if notice.present? %>
+        <div class="alert alert-danger">
+          <h4 class="alert-header"><%= notice %></h4>
+        </div>
+      <% end %>
       <div class="row">
         <div class="col">
           First Name
@@ -24,92 +24,29 @@
 
       <div class="row">
         <div class="col" style="width: 50%">
-          <label for="inline-form-name">Date</label>
-          <%= form.date_field :date, class: "to-fill form-control text-center" %>
-        </div>
-        <div class="col" style="width: 50%">
-          <label for="inline-form-name">Time</label>
-          <%= form.time_field :time, class: "to-fill form-control text-center" %>
+          <label for="inline-form-name">Date & Time</label>
+          <%= form.datetime_field :datetime, class: "to-fill form-control text-center" %>
         </div>
       </div>
 
       <label for="inline-form-name">Service</label>
       <div class="input-group mb-1">
-        <select class="form-select to-fill p-2" id="inputGroupSelect01">
-          <option selected>-- select a service --</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+        <%= form.select :service, options_for_select(Service.all.collect{ |s| [s.name]}), {}, {class: "form-select to-fill p-2"} %>
       </div>
 
-      <div class="">
-        <label for="inline-form-name">Description</label>
-        <%= form.text_area :description, class: "form-control to-fill" %>
+      <div>
+        <label for="inline-form-name">Purpose</label>
+        <%= form.text_area :purpose, class: "form-control to-fill" %>
       </div>
+
+      <%= form.hidden_field :customer_id, value: Current.customer.id %>
 
       <div class="text-center">
         <div class="text-center">
-          <!-- disabled button<%= form.submit "Submit Request", class: "ca-button btn btn-primary p-3 my-3" %> -->
-          <button class="ca-button btn btn-primary p-3 my-3" data-bs-toggle="modal" data-bs-target="#confirm_request">Submit Request</button>
+          <%= form.submit "Submit Request", class: "ca-button btn btn-primary p-3 my-3", data: { turbo_frame: "remote_modal" } %>
           <button type="Reset" class="col-auto mx-1 btn btn-secondary">Reset</button>
         </div>
       </div>
     <% end %>
-</div>
-
-<!-- Modal for Appointment Confirmation -->
-<div class="modal fade" id="confirm_request" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header text-center" style="background: #001f54">
-        <h1 class="modal-title fs-5 w-100 text-light" id="confirmLabel">Appointment Confirmation</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-5">
-        <div class="row">
-          <div class="col-5">
-            <p class="float-end p-1">Appointment Date</p>
-          </div>
-          <div class="col-7">
-            <h3>October 20, 2022</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-5">
-            <p class="float-end p-1">Appointment Time</p>
-          </div>
-          <div class="col-7">
-            <h3>9:00 AM</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-5">
-            <p class="float-end p-1">Service</p>
-          </div>
-          <div class="col-7">
-            <h3>3D Printing</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-5">
-            <p class="float-end p-1">Description</p>
-          </div>
-          <div class="col-7">
-            <h5>The quick brown fox jumps over the lazy dog.</h5>
-          </div>
-        </div>
-        <div class="row text-center border-top border-dark mt-3 pt-3">
-          <p class="m-0 p-0">Appointment Requested by</p>
-          <p class="m-0 p-0"><%= Current.customer.customer_detail.full_name %></h5>
-          <p class="m-0 p-0"><%= Current.customer.customer_detail.contact_number %></p>
-          <p class="m-0 p-0"><%= Current.customer.customer_detail.email %></p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success">Confirm Request</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
-      </div>
-    </div>
   </div>
-</div>
+<% end %>

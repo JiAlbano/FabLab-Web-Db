@@ -1,5 +1,8 @@
 class Appointment < ApplicationRecord
     belongs_to :customer
 
-    validates :date, :time, :service, :purpose, :status, presence: true
+    enum status: [:pending, :approved, :denied, :cancelled]
+
+    validates :datetime, :service, :purpose, presence: true
+    validates_uniqueness_of :datetime, conditions: -> { where(status: :pending) }, message: "You must only have one pending appointment!"
 end

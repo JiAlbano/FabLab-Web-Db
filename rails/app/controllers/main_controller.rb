@@ -13,11 +13,11 @@ class MainController < ApplicationController
             else
                 @customer.destroy
                 warn "Failed on saving @customer_detail"
-                redirect_to root_path, notice: "Failed in creating account..."
+                redirect_to root_path, notice: "Failed in creating account...", status: :unprocessable_entity
             end
         else
             warn "Failed on saving @customer"
-            redirect_to root_path, notice: "Failed in creating account..."
+            redirect_to root_path, notice: "Failed in creating account...", status: :unprocessable_entity
         end
     end
 
