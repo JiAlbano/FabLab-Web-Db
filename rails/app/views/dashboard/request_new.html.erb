@@ -2,11 +2,6 @@
   <h1 class="m-4 fw-bold">Appointment Request Form</h1>
   <div class="appointment-form p-5 mx-4">
     <%= form_with(model: Appointment, url: "/confirm") do |form| %>
-      <% if notice.present? %>
-        <div class="alert alert-danger">
-          <h4 class="alert-header"><%= notice %></h4>
-        </div>
-      <% end %>
       <div class="row">
         <div class="col">
           First Name

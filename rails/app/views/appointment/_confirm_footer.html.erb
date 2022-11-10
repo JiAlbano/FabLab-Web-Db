@@ -1,9 +1,9 @@
-<%= form_with(model: @appointment, url: submit_appointment_path) do |form| %>
+<%= form_with(model: @appointment, url: submit_appointment_path, data: { turbo: "false" }) do |form| %>
   <%= form.hidden_field :customer_id %>
   <%= form.hidden_field :datetime %>
   <%= form.hidden_field :service %>
   <%= form.hidden_field :purpose %>
 
-  <%= form.submit "Confirm Request", class: "btn btn-success", data: { turbo_frame: "_top" } %>
+  <%= form.submit "Confirm Request", class: "btn btn-success" %>
 <% end %>
 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>

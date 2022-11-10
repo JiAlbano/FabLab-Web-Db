@@ -1,3 +1,9 @@
+<% if notice.present? %>
+  <div class="alert alert-danger">
+    <%= notice %>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-5">
     <p class="float-end p-1">Appointment Date & Time</p>
