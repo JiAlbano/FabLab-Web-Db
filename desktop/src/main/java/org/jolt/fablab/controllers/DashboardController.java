@@ -1,13 +1,24 @@
 package org.jolt.fablab.controllers;
 
+import com.github.shyiko.mysql.binlog.BinaryLogClient;
+import com.github.shyiko.mysql.binlog.event.*;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import org.jolt.fablab.MainApplication;
 import org.jolt.fablab.models.Appointment;
+
+import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class DashboardController extends BaseController implements Initializable {
@@ -32,7 +43,83 @@ public class DashboardController extends BaseController implements Initializable
         service.setCellValueFactory(data -> data.getValue().serviceProperty());
         status.setCellValueFactory(data -> data.getValue().statusProperty());
 
+        appList.setRowFactory(tv -> {
+            TableRow<Appointment> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Appointment appointment = row.getItem();
+                    System.out.println("Doubleclick on row " + appointment.getCustomerName());
+                }
+            });
+            return row;
+        });
         appList.setItems(appointments);
+
+        try {
+            BinaryLogClient client = MainApplication.getClient();
+            new Thread(() -> {
+                final Map<String, Long> tableMap = new HashMap<String, Long>();
+                client.registerEventListener(event -> {
+                    EventData data = event.getData();
+
+                    if (data instanceof TableMapEventData tableData) {
+                        tableMap.put(tableData.getTable(), tableData.getTableId());
+                    } else if (data instanceof WriteRowsEventData eventData) {
+                        if (eventData.getTableId() == tableMap.get("appointments")) {
+                            System.out.println("New appointment");
+
+                            for (Object[] row: eventData.getRows()) {
+                                System.out.println(Arrays.asList(row));
+                                appointments.add(new Appointment(row));
+                            }
+                            appList.refresh();
+                        }
+                    } else if (data instanceof UpdateRowsEventData eventData) {
+                        if (eventData.getTableId() == tableMap.get("appointments")) {
+                            System.out.println("Appointment update");
+
+                            for (Map.Entry<Serializable[], Serializable[]> row : eventData.getRows()) {
+                                Map<String, String> appointmentMap = Appointment.getAppointmentMap(row.getValue());
+                                System.out.println(appointmentMap);
+
+                                for (Appointment appointment : appointments) {
+                                    if (appointment.getId() == Integer.parseInt(appointmentMap.get("id"))) {
+                                        int index = appointments.indexOf(appointment);
+                                        appointments.set(index, new Appointment(appointmentMap));
+                                        break;
+                                    }
+                                }
+                            }
+                            appList.refresh();
+                        }
+                    } else if (data instanceof DeleteRowsEventData eventData) {
+                        if (eventData.getTableId() == tableMap.get("appointments")) {
+                            System.out.println("Appointment delete");
+
+                            for (Object[] row : eventData.getRows()) {
+                                System.out.println(Arrays.asList(row));
+                                for (Appointment appointment : appointments) {
+                                    if (appointment.getId() == (Long) row[0]) {
+                                        appointments.remove(appointment);
+                                        break;
+                                    }
+                                }
+                            }
+                            appList.refresh();
+                        }
+                    }
+
+                    appList.refresh();
+                });
+                try {
+                    client.connect();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }).start();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
