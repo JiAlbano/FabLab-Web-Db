@@ -1,11 +1,19 @@
-<%= turbo_frame_tag "dashboard_content" do %>
-  <div class="row container-fluid">
-    <div class="col-auto">
-      <h1 class="m-4 fw-bold">My Appointment History</h1>
+<!-- render sidebar partial 
+<div class="container-fluid position-fixed vh-100 p-0 float-left">
+    <%= render "sidebar" %>
+</div>  
+-->
+
+<div class="dashboard-content"> 
+    <div class="row container-fluid">
+        <div class="col-auto">
+            <h1 class="m-4 fw-bold">My Appointment History</h1>
+            <%= render "appointment_history" %>
+        </div>
     </div>
-    <div class="col-auto mt-3">
-      <%= link_to "Show Pending Appointment", pending_path, class: "pending-button rounded-0 position-absolute end-0 mx-4", data: { turbo_frame: "dashboard_content" } %>
-    </div>
-  </div>
-  <%= render "appointment_history" %>
-<% end %>
+    
+</div>
+
+<%= link_to "Show Pending Appointment", pending_path, class: "history-pending-button rounded-0 position-relative float-end" %>
+
+

@@ -18,8 +18,11 @@
   }
 
   .titlediv {
-    background-image: linear-gradient(#0a1128, #001f54, #034078);
-    height: 80%;
+    background-image: linear-gradient(#0a1128, #034078, #fefcfb);
+    height: 80vh;
+    padding: 0 10vw 0 10vw;
+    margin: 0;
+    z-index: -1;
   }
 
   .account_buttons button {
@@ -45,36 +48,43 @@
     border: 2px solid #ffffff;
   }
 
-  .titletext {
-    width: 70%;
+  .welcome-text{
+    height: 40vh; 
+    top: 20vh;
+    text-justify: auto;
+    margin: auto;
   }
 
-  .titletext h1 {
-    font-family: tahoma;
-    font-size: 8em;
+  .fablab-title{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 13vw;
   }
 
-  .titletext p {
-    font-family: microsoft yahei;
-    font-size: 1.2em;
+  .fablab-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2rem;
   }
 
   .reqbutton {
-    padding: 1.5em 2em;
-    background-color: #1282a2;
-    color: #0a1128;
+    padding: 2.5vh 5vw 2.5vh 5vw;
+    font-size: 1em;
+    background: transparent;
+    color: #ffffff;
     border-radius: 10px;
-    border: none;
+    border: 2px solid #ffffff;
     text-decoration: none;
     font-family: microsoft yahei;
+    top: 65vh;
+    left: 9vw;
   }
 
   .reqbutton:hover {
     color: #ffffff;
-    background-color: #0a1128;
+    background-color: rgba(0,0,0,0.3);
     border: none;
     transition-duration: 0.2s;
-    box-shadow: 1px 1px 10px #0a1128;
+    box-shadow: 1px 1px 10px #ffffff;
   }
 
   .my-forms{
@@ -126,6 +136,19 @@
     transition-duration: 0.2s;
   }
 
+  .navbar{
+    height: 15vh;
+    background-image: linear-gradient(#1282a2, #034078);
+    box-shadow: 1px 1px 0.5em #001f54;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .offcanvas-body{
+    background-image: linear-gradient(to right, #034078, #1282a2);
+  }
+  
+  /*
   .sidebar{
     z-index: -1;
     background-image: linear-gradient(to right, #0a1128, #001f54);
@@ -135,14 +158,16 @@
 
   .sidebar h1{
     //font-family: 'Noto Serif Gujarati', serif;
-    font-family: Tahoma;
-    font-size: 5em;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 5vw;
   }
 
   .sidebar h1:hover{
     text-shadow: 1px 1px 5px #ffffff;
     transition-duration: 0.2s;
   }
+  */
 
   .user-log{
     font-family: Microsoft Yahei;
@@ -153,27 +178,35 @@
 
   .welcome-user {
     color: #1282a2;
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
 
-  .dashboard-buttons{
-    z-index: 1;
-    width: 30%;
+  .home-button{
+    height: 15vh;
+    width: 100%;
+    border: none;
+    margin-bottom: 0.3em;
+    background-color: #0a1128;
+    color: white;
+    font-size: 4vh;
+    font-weight: bold;
+    box-shadow: 1px 1px 0.5em #0a1128;
   }
 
-  .dashboard-buttons button{
+  .dashboard-button{
     height: 4em;
     width: 100%;
     border: none;
     margin-bottom: 0.3em;
-    background-color: #001f54;
+    background-color: #034078;
     color: white;
   }
 
-  .dashboard-buttons button:hover{
-    background: linear-gradient(to left, #ffffff 50%, #001f54 50%) right;
+  .dashboard-button:hover{
+    background: linear-gradient(to left, #0a1128 50%, #001f54 50%) right;
     background-size: 200% 100%;
-    color: #0a1128;
+    color: #ffffff;
+    text-shadow: 1px 1px 0.2vh #ffffff;
     font-weight: bold;
     //text-shadow: 1px 1px 1px #0a1128;
     border: none;
@@ -181,14 +214,12 @@
   }
 
   .dashboard-content{
-    width: 70%;
-    margin-left: 30%;
-    position: absolute;
+    padding: 15vh 10% 10vh 10%;
   }
 
   .dashboard-content h1{
     font-family: Tahoma;
-    color: #0a1128
+    color: #0a1128;
   }
 
   .pending-card{
@@ -199,11 +230,7 @@
     background: #0a1128;
   }
 
-  .pending-info{
-    height: auto;
-  }
-
-  .history-button{
+  .history-pending-button{
     //border: 2px solid #0a1128;
     font-size: 1.5rem;
     color: #0a1128;
@@ -211,7 +238,7 @@
     padding: 1em;
   }
 
-  .history-button:hover{
+  .history-pending-button:hover{
     background: linear-gradient(to left, #0a1128 50%, #ffffff 50%) right;
     background-size: 200% 100%;
     color: #ffffff;
@@ -237,6 +264,7 @@
   }
   .appointment-history{
     overflow: hidden;
+    z-index: -1;
   }
 
   .ah-title{
