@@ -26,10 +26,10 @@ public class MainApplication extends Application {
         // Connect to Database
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://jolt:jolt@localhost:3306/fablab_dev");
+            conn = DriverManager.getConnection("jdbc:mysql://root:password@localhost:3307/fablab_dev");
             System.out.println("Connection successful!");
 
-            client = new BinaryLogClient("localhost", 3306, "jolt", "jolt");
+            client = new BinaryLogClient("localhost", 3307, "fablab_dev","root", "password");
             System.out.println("Set BinaryLogClient!");
         } catch (Exception ex) {
             System.out.println("Connection unsuccessful.");
