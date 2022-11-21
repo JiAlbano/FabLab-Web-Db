@@ -73,28 +73,28 @@
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="626.0" layoutY="24.0" prefHeight="34.0" prefWidth="40.0" text="20" textFill="#030303">
+            <Label fx:id="day" layoutX="626.0" layoutY="24.0" prefHeight="34.0" prefWidth="40.0" text="20" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="664.0" layoutY="30.0" text="Feb" textFill="#030303">
+            <Label fx:id="month" layoutX="664.0" layoutY="30.0" text="Feb" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="664.0" layoutY="41.0" text="2022" textFill="#030303">
+            <Label fx:id="year" layoutX="664.0" layoutY="41.0" text="2022" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="10.0" />
                </font>
             </Label>
             <Separator layoutX="729.0" layoutY="13.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" style="-fx-background-color: #1282a2 50%;" />
-            <Label layoutX="798.0" layoutY="18.0" text="AM" textFill="#030303">
+            <Label fx:id="am_pm" layoutX="798.0" layoutY="18.0" text="AM" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>
                <graphic>
-                  <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="65.0" text="12:00" textAlignment="RIGHT" textFill="#030303">
+                  <Label fx:id="time" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="65.0" text="12:00" textAlignment="RIGHT" textFill="#030303">
                      <font>
                         <Font name="Berlin Sans FB" size="30.0" />
                      </font>
@@ -127,9 +127,9 @@
       <AnchorPane layoutX="40.0" layoutY="123.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3.0" prefWidth="0.0" style="-fx-background-color: #1282a2 50%;" />
       <AnchorPane layoutX="25.0" layoutY="169.0" prefHeight="200.0" prefWidth="938.0">
          <children>
-            <Label fx:id="purpose" layoutX="435.0" layoutY="89.0" text="Pending" textFill="#030303">
+            <Label fx:id="purpose" layoutX="439.0" layoutY="91.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." textAlignment="JUSTIFY" textFill="#030303" wrapText="true" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
+                  <Font name="Berlin Sans FB" size="16.0" />
                </font>
             </Label>
          </children>

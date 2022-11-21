@@ -27,8 +27,11 @@ import java.util.Map;
 
 public class LoginController extends BaseController {
 
-    public MFXTextField usernameField;
-    public MFXPasswordField passwordField;
+    @FXML
+    private MFXTextField usernameField;
+
+    @FXML
+    private MFXPasswordField passwordField;
 
     @FXML
     void closeBtnClicked(MouseEvent event) {

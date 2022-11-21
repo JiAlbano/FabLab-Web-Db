@@ -23,6 +23,7 @@ import java.util.Objects;
 public class Appointment {
     private IntegerProperty id;
     private StringProperty customerName, date, time, service, purpose, status;
+    private Customer customer;
 
     public enum Status {
         pending,
@@ -60,7 +61,7 @@ public class Appointment {
                 String purpose = rs.getString("purpose");
                 String status = statuses[rs.getInt("status")].name();
 
-                appointments.add(new Appointment(id, customerName, datetime.toLocalDate().toString(), datetime.toLocalTime().toString(), service, purpose, status));
+                appointments.add(new Appointment(id, rs.getInt("customer_id"), customerName, datetime.toLocalDate().toString(), datetime.toLocalTime().toString(), service, purpose, status));
             }
 
             return appointments;
@@ -86,8 +87,9 @@ public class Appointment {
         return null;
     }
 
-    public Appointment(int id, String customerName, String date, String time, String service, String purpose, String status) {
+    public Appointment(int id, int customer_id, String customerName, String date, String time, String service, String purpose, String status) {
         this.id = new SimpleIntegerProperty(id);
+        this.customer = Objects.requireNonNull(Customer.getCustomerFromId(customer_id));
         this.customerName = new SimpleStringProperty(customerName);
         this.date = new SimpleStringProperty(date);
         this.time = new SimpleStringProperty(time);
@@ -98,9 +100,11 @@ public class Appointment {
 
     public Appointment(Object[] objects) {
         OffsetDateTime dateTime = getOffsetDateTime(((Long)objects[0]).intValue());
+        Customer customer = Objects.requireNonNull(Customer.getCustomerFromId(((Long)objects[1]).intValue()));
 
         this.id = new SimpleIntegerProperty(((Long)objects[0]).intValue());
-        this.customerName = new SimpleStringProperty(Objects.requireNonNull(Customer.getCustomerFromId(((Long)objects[1]).intValue())).getFullName());
+        this.customer = customer;
+        this.customerName = new SimpleStringProperty(customer.getFullName());
         this.date = new SimpleStringProperty(dateTime.toLocalDate().toString());
         this.time = new SimpleStringProperty(dateTime.toLocalTime().toString());
         this.service = new SimpleStringProperty(objects[3].toString());
@@ -110,9 +114,12 @@ public class Appointment {
 
     public Appointment(Map<String, String> appointmentMap) {
         OffsetDateTime dateTime = getOffsetDateTime(Integer.parseInt(appointmentMap.get("id")));
+        assert dateTime != null;
+        Customer customer = Objects.requireNonNull(Customer.getCustomerFromId(Integer.parseInt(appointmentMap.get("customer_id"))));
 
         this.id = new SimpleIntegerProperty(Integer.parseInt(appointmentMap.get("id")));
-        this.customerName = new SimpleStringProperty(Objects.requireNonNull(Customer.getCustomerFromId(Integer.parseInt(appointmentMap.get("customer_id")))).getFullName());
+        this.customer = customer;
+        this.customerName = new SimpleStringProperty(customer.getFullName());
         this.date = new SimpleStringProperty(dateTime.toLocalDate().toString());
         this.time = new SimpleStringProperty(dateTime.toLocalTime().toString());
         this.service = new SimpleStringProperty(appointmentMap.get("service"));
@@ -202,5 +209,17 @@ public class Appointment {
 
     public void setPurpose(String purpose) {
         this.purpose.set(purpose);
+    }
+
+    public void setStatus(String status) {
+        this.status.set(status);
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

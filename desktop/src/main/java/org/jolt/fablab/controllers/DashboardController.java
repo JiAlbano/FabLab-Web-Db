@@ -5,11 +5,17 @@ import com.github.shyiko.mysql.binlog.event.*;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.jolt.fablab.MainApplication;
 import org.jolt.fablab.models.Appointment;
 
@@ -47,8 +53,22 @@ public class DashboardController extends BaseController implements Initializable
             TableRow<Appointment> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    Appointment appointment = row.getItem();
-                    System.out.println("Doubleclick on row " + appointment.getCustomerName());
+                    try {
+                        Appointment appointment = row.getItem();
+                        FXMLLoader fxmlLoader = application.fxmlLoaderBuilder("views/Dashboard/client-view.fxml");
+                        Parent root = fxmlLoader.load();
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        ((ClientController)fxmlLoader.getController()).setAppointment(appointment);
+                        ((ClientController)fxmlLoader.getController()).setDetails();
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.initStyle(StageStyle.UTILITY);
+                        stage.setResizable(false);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
             return row;
