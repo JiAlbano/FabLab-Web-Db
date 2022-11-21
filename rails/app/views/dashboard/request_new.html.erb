@@ -1,6 +1,12 @@
-<%= turbo_frame_tag "dashboard_content" do %>
+<!-- render sidebar partial  
+<div class="container-fluid position-fixed vh-100 p-0 float-left">
+    <%= render "sidebar" %>
+</div> 
+-->
+
+<div class="dashboard-content">
   <h1 class="m-4 fw-bold">Appointment Request Form</h1>
-  <div class="appointment-form p-5 mx-4">
+  <div class="appointment-form">
     <%= form_with(model: Appointment, url: "/confirm") do |form| %>
       <div class="row">
         <div class="col">

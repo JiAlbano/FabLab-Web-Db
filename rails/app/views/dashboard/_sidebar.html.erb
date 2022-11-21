@@ -1,17 +1,39 @@
-<div class="sidebar flex-fill vh-100 position-relative">
-  <%= link_to root_path, class: "text-decoration-none" do %>
-    <h1 class="text-light text-center pt-4 fw-bold">FabLab <i class="fa-solid fa-book-bookmark"></i></h1></a>
-  <% end %>
-
-  <div class="user-log position-absolute bottom-0 start-50 translate-middle-x pb-3">
-    <h6 class="welcome-user text-light text-center">Welcome,
-      <b style="color: #1282a2"><%= Current.customer.customer_detail.full_name %></b>! <i class="fa-solid fa-user"></i>
-    </h6>
-    <div class="text-center"><%= link_to "Log out", logout_path, class: "logout text-center", style: "color: #8b8b8b" %></div>
+<div class="navbar navbar-dark fixed-top">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "text-decoration-none" do %>
+      <h1 class="text-light text-center pt-4 fw-bold">FabLab <i class="fa-solid fa-book-bookmark"></i></h1>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="offcanvasNavbarLabel">
+      <div>
+        <button type="button" class="btn-close btn-close-white position-absolute end-0 p-4" data-bs-dismiss="offcanvas" aria-label="Close">
+      </div>
+      <div class="offcanvas-body p-0">
+        <div style="bottom: 9em">
+            <%= button_to root_path, :method => "get", :class => "home-button" do %>
+                Home <i class="fa-solid fa-house"></i>
+            <% end %>
+        </div>
+        <div class="vstack container-fluid position-absolute px-0 pb-4" style="bottom: 9em">
+            <%= button_to "My Appointments", pending_path, :method => "get", :class => "dashboard-button" %>
+            <%= button_to "Request an Appointment", request_path, :method => "get", :class => "dashboard-button" %>
+        </div>
+        <div class="user-log position-absolute bottom-0 start-50 translate-middle-x py-4">
+            <div class="container-fluid">
+                <div class="col">
+                    <h6 class="welcome-user text-light text-center">Welcome,<h6>
+                </div>
+                <div class="col text-light pb-4">
+                    <h6><b style="color: #1282a2"><%= Current.customer.customer_detail.full_name.titleize %></b>! <i class="fa-solid fa-user"></i></h6>
+                </div>
+            </div>
+            <div class="text-center"><%= link_to "Log out", logout_path, class: "logout text-center", style: "color: #8b8b8b" %></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+    
 
-<div class="dashboard-buttons vstack container-fluid position-absolute p-0" style="bottom: 9em">
-  <%= button_to "My Appointments", pending_path, :method => "get", data: { turbo_frame: "dashboard_content" } %>
-  <%= button_to "Request an Appointment", request_path, :method => "get", data: { turbo_frame: "dashboard_content" } %>
-</div>

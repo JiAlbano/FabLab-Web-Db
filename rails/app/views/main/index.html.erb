@@ -1,7 +1,6 @@
-<div class="titlediv container-fluid m-0 p-0 position-absolute">
-  <!-- if not logged in, show login and signup button -->
+<!-- if not logged in, show login and signup button -->
   <% if Current.customer.nil? %>
-    <span class="account_buttons float-end m-3">
+    <span class="account_buttons m-3 position-fixed end-0">
         <button class="login fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#login">Log In</button>
         <button class="signup fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</button>
     </span>
@@ -9,7 +8,7 @@
     <!-- else, if logged in, show dropdown for user options -->
     <div class="dropdown float-end m-3">
       <button class="user-dropdown text-light dropdown-toggle fw-bold" type="button" data-hover="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        Welcome, <%= Current.customer.customer_detail.full_name %>
+        Welcome, <%= Current.customer.customer_detail.full_name.titleize %>
       </button>
       <ul class="dropdown-menu text-center">
         <li><%= link_to "My Appointments", dashboard_path(:src => pending_path), class: "dropdown-item" %></li>
@@ -21,20 +20,6 @@
       </ul>
     </div>
   <% end %>
-
-
-  <div class="titletext text-light position-relative top-50 start-50 translate-middle">
-    <h1 class="fw-bold">FabLab</h1>
-    <p class="d-flex justify-content-evenly">FabLab Bicol is a business located on Bicol University East Campus that
-      offers services for product consultation, 3D scanning and printing, printing and cutting, and embroidery. The
-      FabLab Web Application allows you to view the availability of appointments and reserve them. This web-based
-      technology allows, you, our beloved customers, to be able to set appointments remotely through your own computers
-      to provide you with a highly convenient and accessible appointment medium.
-    </p>
-  </div>
-  <div class="position-absolute top-100 start-50 translate-middle">
-    <%= link_to "Request an Appointment", dashboard_path(:src => request_path), class: "reqbutton fw-bold" %>
-  </div>
 
   <!-- modal for login -->
   <div class="modal fade" tabindex="-1" id="login">
@@ -67,4 +52,18 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div class="container-fluid position-fixed">
+    <%= link_to "Request an Appointment", request_path, class: "reqbutton fw-bold position-relative" %>
+  </div>
+
+  <div class="titlediv container-fluid position-fixed">
+    <div class="welcome-text position-relative">
+      <h1 class="fablab-title text-light mb-0">FabLab</h1>
+      <h3 class="fablab-text d-flex text-light mt-0">Where creativity is converted to fabulous fabrication.</h3>
+    </div>
+  <div>
+
+  
+
+  
