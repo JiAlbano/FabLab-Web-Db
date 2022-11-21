@@ -1,4 +1,4 @@
-<div class="position-relative">
+<div>
   <%= form_with(model: Customer, url: "/signup", class: "my-forms g-3 fw-bold position-absolute top-0 start-50 translate-middle-x") do |form| %>
     <%= fields_for(CustomerDetail.new) do |u| %>
       <div class="row">

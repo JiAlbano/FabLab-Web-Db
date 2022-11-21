@@ -1,8 +1,6 @@
 <!-- Appointments History Cards -->
-<div class="ah m-4 rounded">
-  <div class="row">
-    <% @appointments.each do |appointment| %>
-      <%= render "appointment_card", appointment: appointment %>
-    <% end %>
-  </div>
+<div class="text-center">
+  <% @appointments.each do |appointment| %>
+    <%= render "appointment_card", appointment: appointment %>
+  <% end %>
 </div>

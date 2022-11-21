@@ -13,6 +13,8 @@
  */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"); // Bootstrap
 
+
+
   body {
     background: #fefcfb;
   }
@@ -144,30 +146,13 @@
     z-index: 1;
   }
 
+  .nav-button {
+    height: 3em;
+  }
+
   .offcanvas-body{
     background-image: linear-gradient(to right, #034078, #1282a2);
   }
-  
-  /*
-  .sidebar{
-    z-index: -1;
-    background-image: linear-gradient(to right, #0a1128, #001f54);
-    height: 100;
-    width: 30%;
-  }
-
-  .sidebar h1{
-    //font-family: 'Noto Serif Gujarati', serif;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: bold;
-    font-size: 5vw;
-  }
-
-  .sidebar h1:hover{
-    text-shadow: 1px 1px 5px #ffffff;
-    transition-duration: 0.2s;
-  }
-  */
 
   .user-log{
     font-family: Microsoft Yahei;
@@ -208,7 +193,6 @@
     color: #ffffff;
     text-shadow: 1px 1px 0.2vh #ffffff;
     font-weight: bold;
-    //text-shadow: 1px 1px 1px #0a1128;
     border: none;
     transition-duration: 0.3s;
   }
@@ -228,6 +212,10 @@
 
   .pending-title{
     background: #0a1128;
+  }
+
+  .appointment-container{
+    min-height: 40vh;
   }
 
   .history-pending-button{
@@ -262,6 +250,7 @@
     border: none;
     transition-duration: 0.2s;
   }
+
   .appointment-history{
     overflow: hidden;
     z-index: -1;
@@ -282,7 +271,9 @@
   }
 
   .appointment-card{
-    background-image: linear-gradient(#0a1128, #1282a2);
+    border: 2px dashed #e2e2e2;
+    border-radius: 0;
+    z-index: -1;  
   }
 
   .appointment-form input{

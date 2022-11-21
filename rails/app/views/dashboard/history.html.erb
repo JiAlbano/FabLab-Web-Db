@@ -1,19 +1,16 @@
-<!-- render sidebar partial 
+<!-- render sidebar partial -->
 <div class="container-fluid position-fixed vh-100 p-0 float-left">
-    <%= render "sidebar" %>
+    <%= render "navbar" %>
 </div>  
--->
 
 <div class="dashboard-content"> 
-    <div class="row container-fluid">
-        <div class="col-auto">
-            <h1 class="m-4 fw-bold">My Appointment History</h1>
-            <%= render "appointment_history" %>
-        </div>
+    <div class="appointment-container">
+        <h1 class="m-4 fw-bold">My Appointment History</h1>
+        <%= render "appointment_history" %>
     </div>
-    
 </div>
 
-<%= link_to "Show Pending Appointment", pending_path, class: "history-pending-button rounded-0 position-relative float-end" %>
+<%= link_to "Show Pending Appointment", pending_path, class: "history-pending-button rounded-0 position-relative float-end" %>  
+
 
 
