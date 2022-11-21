@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.ClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.ClientController">
    <children>
       <AnchorPane layoutY="-4.0" prefHeight="10.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 0  0 20 20;" />
-      <AnchorPane layoutY="168.0" prefHeight="42.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 20 20 0 0;">
+      <AnchorPane layoutX="1.0" layoutY="389.0" prefHeight="42.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 20 20 0 0;" AnchorPane.bottomAnchor="0.0">
          <children>
             <MFXButton cancelButton="true" depthLevel="LEVEL3" layoutX="439.0" layoutY="8.0" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-color: white; -fx-border-radius: 0;" text="Cancel Request" textFill="WHITE" />
             <MFXButton contentDisplay="TOP" depthLevel="LEVEL3" graphicTextGap="20.0" layoutX="700.0" layoutY="8.0" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-border-color: white; -fx-background-color: transparent; -fx-background-radius: 0; -fx-border-radius: 0;" text="Approve Request" textFill="WHITE" />
@@ -33,7 +33,7 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <Label layoutX="53.0" layoutY="102.0" text="Surname, First Name, M." textFill="#030303">
+            <Label fx:id="name" layoutX="53.0" layoutY="102.0" text="Surname, First Name, M." textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="14.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="268.0" layoutY="101.0" text="costumeremail@gmail.com" textFill="#030303">
+            <Label fx:id="email" layoutX="268.0" layoutY="101.0" text="costumeremail@gmail.com" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="14.0" />
                </font>
@@ -58,12 +58,12 @@
                   <Font name="Berlin Sans FB" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="739.0" layoutY="100.0" text="Printing Services" textFill="#030303">
+            <Label fx:id="service" layoutX="739.0" layoutY="100.0" text="Printing Services" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="532.0" layoutY="100.0" text="Pending" textFill="#030303">
+            <Label fx:id="status" layoutX="532.0" layoutY="100.0" text="Pending" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
@@ -73,28 +73,28 @@
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="626.0" layoutY="24.0" prefHeight="34.0" prefWidth="40.0" text="20" textFill="#030303">
+            <Label fx:id="day" layoutX="626.0" layoutY="24.0" prefHeight="34.0" prefWidth="40.0" text="20" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="664.0" layoutY="30.0" text="Feb" textFill="#030303">
+            <Label fx:id="month" layoutX="664.0" layoutY="30.0" text="Feb" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="10.0" />
                </font>
             </Label>
-            <Label layoutX="664.0" layoutY="41.0" text="2022" textFill="#030303">
+            <Label fx:id="year" layoutX="664.0" layoutY="41.0" text="2022" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="10.0" />
                </font>
             </Label>
             <Separator layoutX="729.0" layoutY="13.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" style="-fx-background-color: #1282a2 50%;" />
-            <Label layoutX="798.0" layoutY="18.0" text="AM" textFill="#030303">
+            <Label fx:id="am_pm" layoutX="798.0" layoutY="18.0" text="AM" textFill="#030303">
                <font>
                   <Font name="Berlin Sans FB" size="12.0" />
                </font>
                <graphic>
-                  <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="65.0" text="12:00" textAlignment="RIGHT" textFill="#030303">
+                  <Label fx:id="time" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" prefHeight="33.0" prefWidth="65.0" text="12:00" textAlignment="RIGHT" textFill="#030303">
                      <font>
                         <Font name="Berlin Sans FB" size="30.0" />
                      </font>
@@ -125,5 +125,14 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="40.0" layoutY="123.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3.0" prefWidth="0.0" style="-fx-background-color: #1282a2 50%;" />
+      <AnchorPane layoutX="25.0" layoutY="169.0" prefHeight="200.0" prefWidth="938.0">
+         <children>
+            <Label fx:id="purpose" layoutX="439.0" layoutY="91.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." textAlignment="JUSTIFY" textFill="#030303" wrapText="true" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

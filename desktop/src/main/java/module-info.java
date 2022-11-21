@@ -4,6 +4,7 @@ module org.jolt.fablab {
     requires MaterialFX;
     requires de.jensd.fx.glyphs.fontawesome;
     requires mysql.connector.java;
+    requires mysql.binlog.connector.java;
     requires java.sql;
 
     opens org.jolt.fablab to javafx.fxml;

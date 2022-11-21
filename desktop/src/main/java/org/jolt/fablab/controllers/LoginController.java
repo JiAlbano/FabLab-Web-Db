@@ -17,7 +17,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.stage.StageStyle;
+import org.jolt.fablab.MainApplication;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Arrays;
@@ -25,8 +27,11 @@ import java.util.Map;
 
 public class LoginController extends BaseController {
 
-    public MFXTextField usernameField;
-    public MFXPasswordField passwordField;
+    @FXML
+    private MFXTextField usernameField;
+
+    @FXML
+    private MFXPasswordField passwordField;
 
     @FXML
     void closeBtnClicked(MouseEvent event) {
@@ -43,6 +48,8 @@ public class LoginController extends BaseController {
 
     @FXML
     public void loginBtnClicked(MouseEvent mouseEvent) {
+        Connection conn = MainApplication.getConnection();
+
         MFXGenericDialog dialogContent = MFXGenericDialogBuilder.build()
                 .makeScrollable(false)
                 .get();

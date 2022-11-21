@@ -1,5 +1,6 @@
 package org.jolt.fablab;
 
+import com.github.shyiko.mysql.binlog.BinaryLogClient;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import java.sql.DriverManager;
 
 public class MainApplication extends Application {
     private static Connection conn = null;
+    private static BinaryLogClient client = null;
 
     @Override
     public void init() throws Exception {
@@ -26,6 +28,9 @@ public class MainApplication extends Application {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://jolt:jolt@localhost:3306/fablab_dev");
             System.out.println("Connection successful!");
+
+            client = new BinaryLogClient("localhost", 3306, "jolt", "jolt");
+            System.out.println("Set BinaryLogClient!");
         } catch (Exception ex) {
             System.out.println("Connection unsuccessful.");
             Platform.exit();
@@ -72,7 +77,6 @@ public class MainApplication extends Application {
 
             if (controller instanceof BaseController) {
                 ((BaseController) controller).setMainApp(this);
-                ((BaseController) controller).setDatabaseConnection(conn);
             }
             return controller;
         });
@@ -83,4 +87,5 @@ public class MainApplication extends Application {
     public static Connection getConnection() {
         return conn;
     }
+    public static BinaryLogClient getClient() { return client; }
 }
