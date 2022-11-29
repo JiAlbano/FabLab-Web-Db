@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -132,6 +133,12 @@
                   <Font name="Berlin Sans FB" size="16.0" />
                </font>
             </Label>
+            <Label layoutX="39.0" layoutY="16.0" prefHeight="27.0" prefWidth="68.0" text="Purpose" textFill="#030303">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView glyphName="CLIPBOARD" layoutX="14.0" layoutY="36.0" size="18" />
          </children>
       </AnchorPane>
    </children>

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.DashboardController">
+<AnchorPane prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.DashboardController">
     <children>
         <AnchorPane prefHeight="162.0" prefWidth="1050.0" styleClass="head-background" stylesheets="@header-style.css">
             <children>
@@ -41,22 +41,22 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Text>
-              <MFXButton id="closeBtn" focusTraversable="false" layoutX="1013.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#closeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
-                  <font>
-                      <Font name="System Bold" size="12.0" />
-                  </font>
-               <graphic>
-                      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="7" tabSize="5" text="" wrappingWidth="22.800048828125" x="1000.0" />
-               </graphic>
-              </MFXButton>
-              <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="982.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#minimizeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
-                  <font>
-                      <Font name="System Bold" size="12.0" />
-                  </font>
-                  <graphic>
-                      <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="7" wrappingWidth="12.0" />
-                  </graphic>
-              </MFXButton>
+                <MFXButton id="closeBtn" focusTraversable="false" layoutX="1013.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#closeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: red; -fx-border-color: black; -fx-background-radius: 20; -fx-border-radius: 30;" text=" " textAlignment="RIGHT" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="7" tabSize="5" text="" wrappingWidth="22.800048828125" x="1000.0" />
+                    </graphic>
+                </MFXButton>
+                <MFXButton id="minimizeBtn" focusTraversable="false" layoutX="982.0" layoutY="14.0" minHeight="-Infinity" minWidth="15.0" onMouseClicked="#minimizeBtnClicked" prefHeight="15.0" prefWidth="22.0" style="-fx-background-color: green; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15;" text=" " textAlignment="RIGHT" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="MINUS" size="7" wrappingWidth="12.0" />
+                    </graphic>
+                </MFXButton>
             </children>
         </AnchorPane>
         <MFXButton layoutX="65.0" layoutY="55.0" prefHeight="138.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: gray;" text=" ">
@@ -88,7 +88,7 @@
                 </MFXButton>
             </children>
         </HBox>
-        <TableView fx:id="appList" layoutX="31.0" layoutY="424.0" prefHeight="250.0" prefWidth="987.0" stylesheets="@table-style.css">
+        <TableView fx:id="appList" layoutX="31.0" layoutY="276.0" prefHeight="398.0" prefWidth="987.0" stylesheets="@table-style.css">
             <columns>
                 <TableColumn fx:id="customerName" prefWidth="215.19997787475586" text="NAME" />
                 <TableColumn fx:id="date" prefWidth="83.20002746582031" text="DATE" />
@@ -97,5 +97,12 @@
                 <TableColumn fx:id="status" prefWidth="136.0001220703125" text="STATUS" />
             </columns>
         </TableView>
+        <Text layoutX="89.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OVERVIEW OF APPOINTMENTS ">
+            <font>
+                <Font name="Comfortaa SemiBold" size="31.0" />
+            </font>
+        </Text>
+        <FontAwesomeIconView glyphName="ARROW_RIGHT" layoutX="52.0" layoutY="254.0" size="28" />
+        <FontAwesomeIconView glyphName="ARROW_RIGHT" layoutX="35.0" layoutY="254.0" size="28" />
     </children>
 </AnchorPane>
