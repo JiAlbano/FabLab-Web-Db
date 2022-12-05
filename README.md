@@ -20,9 +20,15 @@ Using IntelliJ IDEA with Maven build tools to fetch other dependencies
 
 ### Android App
 
-TBA
+Ruby version: 3.1.2p20 (2022-04-12 revision 4491bb740a)
 
-### Gantt Chart Update 2 Weeks in November
+Rails version: 7.0.4
 
-![Gantt_chart 3](https://user-images.githubusercontent.com/114860611/203143588-29e32c27-b0d9-45bc-a495-b26308787b2d.png)
+Using Bundle gem to fetch other dependencies
+
+
+### Gantt Chart Update after 1 month | 3 weeks in November
+
+!![Screenshot_20221205_014020](https://user-images.githubusercontent.com/114860611/205557899-05dcda0b-04b6-4bb5-bffc-724d9dbb0ee4.png)
+
 
