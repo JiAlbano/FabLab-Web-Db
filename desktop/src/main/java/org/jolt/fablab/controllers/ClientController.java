@@ -1,8 +1,10 @@
 package org.jolt.fablab.controllers;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import org.jolt.fablab.models.Appointment;
 
 import java.net.URL;
@@ -23,6 +25,8 @@ public class ClientController extends BaseController {
     private Label name, email, status, service, purpose;
     @FXML
     private Label day, month, year, time, am_pm;
+    @FXML
+    private MFXButton approveBtn, denyBtn;
 
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
@@ -44,6 +48,17 @@ public class ClientController extends BaseController {
 
         time.setText(_time.format(DateTimeFormatter.ofPattern("h:mm")));
         am_pm.setText(_time.format(DateTimeFormatter.ofPattern("a")));
+    }
 
+    @FXML
+    void approveBtnClicked(MouseEvent event) {
+        appointment.updateStatus(Appointment.Status.approved);
+        getStage().close();
+    }
+
+    @FXML
+    void denyBtnClicked(MouseEvent event) {
+        appointment.updateStatus(Appointment.Status.denied);
+        getStage().close();
     }
 }

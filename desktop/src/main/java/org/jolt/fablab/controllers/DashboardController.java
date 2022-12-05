@@ -39,7 +39,7 @@ public class DashboardController extends BaseController implements Initializable
     public TableColumn<Appointment, String> service;
     public TableColumn<Appointment, String> status;
 
-    private ObservableList<Appointment> appointments = Appointment.fetchDataFromDb();
+    private ObservableList<Appointment> appointments = Appointment.fetchDataFromDb(Appointment.Status.pending);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,6 +61,8 @@ public class DashboardController extends BaseController implements Initializable
                         Stage stage = new Stage();
                         ((ClientController)fxmlLoader.getController()).setAppointment(appointment);
                         ((ClientController)fxmlLoader.getController()).setDetails();
+                        ((ClientController)fxmlLoader.getController()).setScene(scene);
+                        ((ClientController)fxmlLoader.getController()).setStage(stage);
                         stage.initModality(Modality.APPLICATION_MODAL);
                         stage.initStyle(StageStyle.UTILITY);
                         stage.setResizable(false);
@@ -140,6 +142,22 @@ public class DashboardController extends BaseController implements Initializable
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void pendingBtnClicked(MouseEvent event) {
+        appointments.clear();
+        appointments = Appointment.fetchDataFromDb(Appointment.Status.pending);
+        appList.setItems(appointments);
+        appList.refresh();
+    }
+
+    @FXML
+    void cancelBtnClicked(MouseEvent event) {
+        appointments.clear();
+        appointments = Appointment.fetchDataFromDb(Appointment.Status.cancelled);
+        appList.setItems(appointments);
+        appList.refresh();
     }
 
     @FXML
