@@ -70,10 +70,7 @@
         </MFXButton>
         <HBox layoutX="244.0" layoutY="172.0" prefHeight="40.0" prefWidth="794.0">
             <children>
-                <MFXButton prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 0;" text="Requested Appointments">
-                    <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                    </font>
+                <MFXButton fx:id="pendingBtn" onMouseClicked="#pendingBtnClicked" prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 0;" text="Pending Appointments">
                     <HBox.margin>
                         <Insets right="10.0" />
                     </HBox.margin>
@@ -81,7 +78,7 @@
                         <FontAwesomeIconView glyphName="CALENDAR" size="16" text="" />
                     </graphic>
                 </MFXButton>
-                <MFXButton prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 0;" text="Cancel Appointments">
+                <MFXButton fx:id="cancelBtn" onMouseClicked="#cancelBtnClicked" prefHeight="40.0" prefWidth="400.0" style="-fx-border-color: black; -fx-border-radius: 0;" text="Cancelled Appointments">
                     <graphic>
                         <FontAwesomeIconView glyphName="CALENDAR" size="16" text="" />
                     </graphic>

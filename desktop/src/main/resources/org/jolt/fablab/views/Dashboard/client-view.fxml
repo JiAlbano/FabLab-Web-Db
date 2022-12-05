@@ -13,10 +13,10 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jolt.fablab.controllers.ClientController">
    <children>
       <AnchorPane layoutY="-4.0" prefHeight="10.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 0  0 20 20;" />
-      <AnchorPane layoutX="1.0" layoutY="389.0" prefHeight="42.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 20 20 0 0;" AnchorPane.bottomAnchor="0.0">
+      <AnchorPane layoutY="382.0" prefHeight="42.0" prefWidth="987.0" style="-fx-background-color: #001253; -fx-background-radius: 20 20 0 0;" AnchorPane.bottomAnchor="0.0">
          <children>
-            <MFXButton cancelButton="true" depthLevel="LEVEL3" layoutX="439.0" layoutY="8.0" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-border-color: white; -fx-border-radius: 0;" text="Cancel Request" textFill="WHITE" />
-            <MFXButton contentDisplay="TOP" depthLevel="LEVEL3" graphicTextGap="20.0" layoutX="700.0" layoutY="8.0" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-border-color: white; -fx-background-color: transparent; -fx-background-radius: 0; -fx-border-radius: 0;" text="Approve Request" textFill="WHITE" />
+            <MFXButton fx:id="denyBtn" cancelButton="true" depthLevel="LEVEL3" layoutX="499.0" layoutY="8.0" onMouseClicked="#denyBtnClicked" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-background-color: rgba(255, 0, 0, 0.4); -fx-background-radius: 0; -fx-border-color: white; -fx-border-radius: 0;" text="Deny Request" textFill="WHITE" />
+            <MFXButton fx:id="approveBtn" contentDisplay="TOP" depthLevel="LEVEL3" graphicTextGap="20.0" layoutX="239.0" layoutY="8.0" onMouseClicked="#approveBtnClicked" prefHeight="22.0" prefWidth="250.0" rippleColor="WHITE" style="-fx-border-color: white; -fx-background-color: rgba(0, 255, 0, 0.4); -fx-background-radius: 0; -fx-border-radius: 0;" text="Approve Request" textFill="WHITE" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="25.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="938.0" style="-fx-border-color: #002147; -fx-border-radius: 0 0 20 20;">

@@ -45,13 +45,19 @@ public class Appointment {
         return map;
     }
 
-    public static ObservableList<Appointment> fetchDataFromDb() {
+    public static ObservableList<Appointment> fetchDataFromDb(Status status) {
         Connection conn = MainApplication.getConnection();
         ObservableList<Appointment> appointments = FXCollections.observableArrayList();
 
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM appointments");
+            PreparedStatement ps = null;
+            if (status == null) {
+                ps = conn.prepareStatement("SELECT * FROM appointments");
+            } else {
+                ps = conn.prepareStatement("SELECT * FROM appointments WHERE status = ?");
+                ps.setInt(1, status.ordinal());
+            }
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -59,9 +65,9 @@ public class Appointment {
                 OffsetDateTime datetime = rs.getObject("datetime", OffsetDateTime.class);
                 String service = rs.getString("service");
                 String purpose = rs.getString("purpose");
-                String status = statuses[rs.getInt("status")].name();
+                String appStatus = statuses[rs.getInt("status")].name();
 
-                appointments.add(new Appointment(id, rs.getInt("customer_id"), customerName, datetime.toLocalDate().toString(), datetime.toLocalTime().toString(), service, purpose, status));
+                appointments.add(new Appointment(id, rs.getInt("customer_id"), customerName, datetime.toLocalDate().toString(), datetime.toLocalTime().toString(), service, purpose, appStatus));
             }
 
             return appointments;
@@ -221,5 +227,19 @@ public class Appointment {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public boolean updateStatus(Status status) {
+        Connection conn = MainApplication.getConnection();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement("UPDATE appointments SET status = ? WHERE id = ?");
+            ps.setInt(1, status.ordinal());
+            ps.setInt(2, id.intValue());
+
+            return ps.executeUpdate() == 1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
