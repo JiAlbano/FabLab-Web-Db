@@ -29,6 +29,6 @@ Using Bundle gem to fetch other dependencies
 
 ### Gantt Chart Update after 1 month | 3 weeks in November
 
-!![Screenshot_20221205_014020](https://user-images.githubusercontent.com/114860611/205557899-05dcda0b-04b6-4bb5-bffc-724d9dbb0ee4.png)
+![Screenshot_20221205_014020](https://user-images.githubusercontent.com/114860611/205557899-05dcda0b-04b6-4bb5-bffc-724d9dbb0ee4.png)
 
 
