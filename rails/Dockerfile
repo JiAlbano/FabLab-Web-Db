@@ -16,5 +16,5 @@ COPY . .
 # Expose the port so we can connect to it
 EXPOSE 3000
 
-# Run "bash" so it automatically goes to shell
+# Run the server
 CMD ["rails", "server", "-b", "0.0.0.0"]
